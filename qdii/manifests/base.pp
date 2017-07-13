@@ -8,9 +8,7 @@ class qdii::base {
         'nmap',
         'openvpn',
         'tmux',
-        'traceroute',
-        'virtualbox',
-        'virtualbox-host-modules-arch',]:
+        'traceroute',]:
       ensure => installed
     }
 }
