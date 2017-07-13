@@ -8,10 +8,7 @@ class qdii::base {
         'gimp-git',
         'audacity',
         'virtualbox',
-        'virtualbox-host-modules-arch',
-        'wireshark-cli',
-        'wireshark-common',
-        'wireshark-gtk',]:
+        'virtualbox-host-modules-arch',]:
       ensure => installed
     }
 }
