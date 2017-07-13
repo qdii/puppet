@@ -4,6 +4,7 @@ class qdii::base {
         'curl',
         'firefox',
         'gimp-git',
+        'git',
         'irssi',
         'nmap',
         'openvpn',
