@@ -15,6 +15,8 @@ class qdii::dunst {
     path => '/home/qdii/.config/dunst/dunstrc',
     source => 'puppet:///modules/qdii/dotfiles/dunstrc',
     mode => '0600',
+    owner => 'qdii',
+    group => 'qdii',
     require => File['dunst-config-directory'],
   }
 }

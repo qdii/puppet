@@ -17,12 +17,16 @@ class qdii::i3 {
     ensure => file,
     path => '/home/qdii/.i3/config',
     source => 'puppet:///modules/qdii/dotfiles/i3config',
+    owner => 'qdii',
+    group => 'qdii',
     mode => '0600',
   }
   file { 'i3blocks':
     ensure => file,
     path => '/home/qdii/.i3blocks.conf',
     source => 'puppet:///modules/qdii/dotfiles/i3blocks',
+    owner => 'qdii',
+    group => 'qdii',
     mode => '0600',
   }
 }
