@@ -9,7 +9,8 @@ class qdii::base {
         'nmap',
         'openvpn',
         'tmux',
-        'traceroute',]:
+        'traceroute',
+        'vlc',]:
       ensure => installed
     }
 }
