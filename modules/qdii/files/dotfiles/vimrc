@@ -1,0 +1,337 @@
+" {W} -> [É]
+" ——————————
+" On remappe W sur É :
+noremap é w
+noremap É W
+
+" Corollaire, pour effacer/remplacer un mot quand on n’	est pas au début (daé / laé).
+" (attention, cela diminue la réactivité du {A}…)
+noremap aé aw
+noremap aÉ aW
+
+" Pour faciliter les manipulations de fenêtres, on utilise {W} comme un Ctrl+W :
+noremap w <C-w>
+noremap W <C-w><C-w>
+
+" [HJKL] -> {CTSR}
+" ————————————————
+" {cr} = « gauche / droite »
+noremap c h
+noremap r l
+" {ts} = « haut / bas »
+noremap t j
+noremap s k
+" {CR} = « haut / bas de l'écran »
+noremap C H
+noremap R L
+" {TS} = « joindre / aide »
+noremap T J
+noremap S K
+" Corollaire : repli suivant / précédent
+noremap zs zj
+noremap zt zk
+
+" {HJKL} <- [CTSR]
+" ————————————————
+" {J} = « Jusqu'à »            (j = suivant, J = précédant)
+noremap j t
+noremap J T
+" {L} = « Change »             (l = attend un mvt, L = jusqu'à la fin de ligne)
+noremap l c
+noremap L C
+" {H} = « Remplace »           (h = un caractère slt, H = reste en « Remplace »)
+noremap h r
+noremap H R
+" {K} = « Substitue »          (k = caractère, K = ligne)
+noremap k s
+noremap K S
+" Corollaire : correction orthographique
+noremap ]k ]s
+noremap [k [s
+
+" Désambiguation de {g}
+" —————————————————————
+" ligne écran précédente / suivante (à l'intérieur d'une phrase)
+noremap gs gk
+noremap gt gj
+" onglet précédant / suivant
+noremap gb gT
+noremap gé gt
+" optionnel : {gB} / {gÉ} pour aller au premier / dernier onglet
+noremap gB :exe "silent! tabfirst"<CR>
+noremap gÉ :exe "silent! tablast"<CR>
+" optionnel : {g"} pour aller au début de la ligne écran
+noremap g" g0
+
+" <> en direct
+" ————————————
+noremap « <
+noremap » >
+
+" Remaper la gestion des fenêtres
+" ———————————————————————————————
+noremap wt <C-w>j
+noremap ws <C-w>k
+noremap wc <C-w>h
+noremap wr <C-w>l
+noremap wd <C-w>c
+noremap wo <C-w>s
+noremap wp <C-w>o
+noremap w<SPACE> :split<CR>
+noremap w<CR> :vsplit<CR>
+
+" Si vous souhaitez avoir les chiffres en accès direct en mode normal, remplacez la section « <> en direct » par les lignes suivantes :
+
+" Chiffres en accès direct
+" ————————————————————————
+noremap " 1
+noremap 1 "
+noremap « 2
+noremap 2 <
+noremap » 3
+noremap 3 >
+noremap ( 4
+noremap 4 (
+noremap ) 5
+noremap 5 )
+noremap @ 6
+noremap 6 @
+noremap + 7
+noremap 7 +
+noremap - 8
+noremap 8 -
+noremap / 9
+noremap 9 /
+noremap * 0
+noremap 0 *
+
+nmap e <Plug>Sneak_s
+nmap E <Plug>Sneak_S
+xmap e <Plug>Sneak_s
+xmap E <Plug>Sneak_S
+omap e <Plug>Sneak_s
+omap E <Plug>Sneak_S
+
+let mapleader = 'à'
+
+set guifont=Ubuntu\ Mono\ Plus\ Nerd\ File\ Types\ Mono\ 11
+set syntax=on
+set tabstop=4
+set expandtab
+set shiftwidth=4
+" colore la recherche
+set hlsearch
+"va directement à la recherche au fur et à mesure de la frappe
+set incsearch
+" change automatiquement le répertoire de travail
+set autochdir
+" gère intelligement la casse dans les recherces
+set ignorecase
+set smartcase
+set nu!
+syntax on
+
+let g:ycm_global_ycm_extra_conf = '/home/qdii/.vim/.ycm_extra_conf.py'
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_confirm_extra_conf = 0
+nmap <F8> :TagbarToggle<CR>
+
+nnoremap <c-x> g<c-]>
+vnoremap <c-x> g<c-]>
+set tags=./tags;/
+
+" cscope
+if has("cscope")
+    set csprg=/usr/bin/cscope
+    set csto=0
+    set cst
+    set nocsverb
+    " add any database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+        " else add database pointed to by environment
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+endif
+
+" syntastic
+let g:syntastic_js_checkers = ['jslint']
+let g:syntastic_cpp_checkers = ['gcc']
+let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_no_include_search = 1
+let g:syntastic_cpp_no_default_include_dirs = 1
+let g:syntastic_cpp_auto_refresh_includes = 1
+let g:syntastic_cpp_compiler_options = '-std=c++11'
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:vdebug_keymap = {
+            \    'run': '<S-F5>',
+            \}
+let g:vdebug_options = {"port":9001}
+let g:Powerline_symbols = "fancy"
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+set laststatus=2
+set encoding=utf-8
+let g:vim_json_warnings = 0
+let g:sneak#streak = 1
+let g:clever_f_not_overwrites_standard_mappings = 1
+nmap e <Plug>(clever-f-f)
+xmap e <Plug>(clever-f-f)
+omap e <Plug>(clever-f-f)
+nmap E <Plug>(clever-f-F)
+xmap E <Plug>(clever-f-F)
+omap E <Plug>(clever-f-F)
+nmap è <Plug>(clever-e-t)
+xmap è <Plug>(clever-e-t)
+omap è <Plug>(clever-e-t)
+nmap È <Plug>(clever-e-T)
+xmap È <Plug>(clever-e-T)
+omap È <Plug>(clever-e-T)
+
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'ryanoasis/vim-webdevicons'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'fatih/vim-go'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'tpope/vim-fugitive'
+Plugin 'donnut/vim-php54-syntax'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plugin 'AnsiEsc.vim'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'pangloss/vim-javascript'
+Plugin 'steffanc/cscopemaps.vim'
+Plugin 'brookhong/cscope.vim'
+Plugin 'joonty/vdebug.git'
+Plugin 'bling/vim-airline'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-scripts/EasyMotion'
+Plugin 'elzr/vim-json'
+Plugin 'Yggdroot/indentline'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'gregsexton/gitv'
+Plugin 'rhysd/clever-f.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'hdima/python-syntax'
+
+
+call vundle#end()
+filetype plugin indent on
+
+" Surround remaps things to "c" we don't want
+let g:surround_no_mappings = 1
+xmap S <Plug>VSurround
+nmap ls <Plug>Csurround
+nmap ys <Plug>Ysurround
+nmap yS <Plug>YSurround
+
+set t_Co=256
+set background=dark
+colorscheme solarized
+
+map <F7> :NERDTreeToggle<CR>
+nnoremap <C-e> :YcmCompleter GoTo<CR>
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+"
+
+let g:ctrlp_working_path_mode = 'ra'
+let g:clever_f_chars_match_any_signs = ';'
+
+" XML formatter
+function! DoFormatXML() range
+    " Save the file type
+    let l:origft = &ft
+
+    " Clean the file type
+    set ft=
+
+    " Add fake initial tag (so we can process multiple top-level elements)
+    exe ":let l:beforeFirstLine=" . a:firstline . "-1"
+    if l:beforeFirstLine < 0
+        let l:beforeFirstLine=0
+    endif
+    exe a:lastline . "put ='</PrettyXML>'"
+    exe l:beforeFirstLine . "put ='<PrettyXML>'"
+    exe ":let l:newLastLine=" . a:lastline . "+2"
+    if l:newLastLine > line('$')
+        let l:newLastLine=line('$')
+    endif
+
+    " Remove XML header
+    exe ":" . a:firstline . "," . a:lastline . "s/<\?xml\\_.*\?>\\_s*//e"
+
+    " Recalculate last line of the edited code
+    let l:newLastLine=search('</PrettyXML>')
+
+    " Execute external formatter
+    exe ":silent " . a:firstline . "," . l:newLastLine . "!xmllint --noblanks --format --recover -"
+
+    " Recalculate first and last lines of the edited code
+    let l:newFirstLine=search('<PrettyXML>')
+    let l:newLastLine=search('</PrettyXML>')
+
+    " Get inner range
+    let l:innerFirstLine=l:newFirstLine+1
+    let l:innerLastLine=l:newLastLine-1
+
+    " Remove extra unnecessary indentation
+    exe ":silent " . l:innerFirstLine . "," . l:innerLastLine "s/^  //e"
+
+    " Remove fake tag
+    exe l:newLastLine . "d"
+    exe l:newFirstLine . "d"
+
+    " Put the cursor at the first line of the edited code
+    exe ":" . l:newFirstLine
+
+    " Restore the file type
+    exe "set ft=" . l:origft
+endfunction
+command! -range=% FormatXML <line1>,<line2>call DoFormatXML()
+
+nmap <silent> <leader>x :%FormatXML<CR>
+vmap <silent> <leader>x :FormatXML<CR>
+set gfn=Source\ Code\ Pro\ for\ Powerline\ 10
+set rtp+=/home/qdii/Documents/Visascol/gocode/src/github.com/golang/lint/misc/vim
+autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
+
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+
+let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+let &colorcolumn="80,".join(range(120,999),",")
