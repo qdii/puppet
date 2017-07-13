@@ -19,4 +19,10 @@ class qdii::i3 {
     source => 'puppet:///modules/qdii/dotfiles/i3config',
     mode => '0600',
   }
+  file { 'i3blocks':
+    ensure => file,
+    path => '/home/qdii/.i3blocks.conf',
+    source => 'puppet:///modules/qdii/dotfiles/i3blocks',
+    mode => '0600',
+  }
 }
