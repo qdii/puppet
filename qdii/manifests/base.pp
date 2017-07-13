@@ -1,12 +1,14 @@
 class qdii::base {
     package { [
-        'firefox',
-        'nmap',
-        'tmux',
-        'irssi',
-        'openvpn',
-        'gimp-git',
         'audacity',
+        'curl',
+        'firefox',
+        'gimp-git',
+        'irssi',
+        'nmap',
+        'openvpn',
+        'tmux',
+        'traceroute',
         'virtualbox',
         'virtualbox-host-modules-arch',]:
       ensure => installed
