@@ -222,3 +222,6 @@ exec --no-startup-id "blueberry-tray"
 
 # Autolock
 exec --no-startup-id "xautolock -time 10 -locker i3lock"
+
+# Dunst
+exec --no-startup-id "dunst"
