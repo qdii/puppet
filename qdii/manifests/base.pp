@@ -1,6 +1,7 @@
 class qdii::base {
     package { [
         'audacity',
+        'aurtools',
         'curl',
         'firefox',
         'gimp-git',
