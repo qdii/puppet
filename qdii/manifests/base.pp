@@ -11,6 +11,7 @@ class qdii::base {
         'openvpn',
         'tmux',
         'traceroute',
+        'xorg-server',
         'vlc',]:
       ensure => installed
     }
