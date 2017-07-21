@@ -3,6 +3,7 @@ class qdii::vim {
     ensure => 'latest',
     name => 'vim',
   }
+  User <| title == me |> ->
   file { 'vimrc':
     ensure => file,
     path => '/home/qdii/.vimrc',
