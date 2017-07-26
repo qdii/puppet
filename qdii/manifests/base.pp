@@ -7,9 +7,11 @@ class qdii::base {
         'gimp-git',
         'git',
         'irssi',
+        'lsof',
         'nmap',
         'openvpn',
         'tmux',
+        'tcpdump',
         'traceroute',
         'xorg-server',
         'vlc',]:
