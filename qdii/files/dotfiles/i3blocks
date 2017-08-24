@@ -28,6 +28,12 @@ command=/usr/lib/i3blocks/$BLOCK_NAME
 separator_block_width=20
 markup=pango
 
+[time]
+label=
+command=date '+%Y-%m-%d - %H:%M:%S'
+interval=5
+separator=true
+
 [weather]
 command=$SCRIPT_DIR/weather/weather
 # Dublin
@@ -106,14 +112,12 @@ label=
 interval=10
 separator=true
 
-# Battery indicator
-#
-# The battery instance defaults to 0.
-[battery]
-label=⚡
-#instance=1
-interval=30
+[ncpus]
+label=NCPUs
+command=$SCRIPT_DIR/ncpus/ncpus
 separator=true
+interval=30
+
 
 # Date Time
 #
@@ -172,15 +176,24 @@ interval=persist
 markup=pango
 ##instance=/^sda/
 
-[time]
-label=
-command=date '+%Y-%m-%d %H:%M:%S'
-interval=5
-separator=true
-
 [brightness]
 label=
 command=$SCRIPT_DIR/brightness/brightness
 interval=10
 signal=1
+separator=true
+
+# Battery indicator
+#
+# The battery instance defaults to 0.
+[battery]
+label=⚡
+#instance=1
+interval=30
+separator=true
+
+[time]
+label=
+command=date '+%Y-%m-%d  %H:%M:%S'
+interval=5
 separator=true
