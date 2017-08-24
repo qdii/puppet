@@ -1,0 +1,14 @@
+set from = "victor.lavaud@gmail.com"
+set realname = "Victor Lavaud"
+set imap_user = "victor.lavaud@gmail.com"
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed ="+[Gmail]/Drafts"
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+set smtp_url = "smtp://victor.lavaud@smtp.gmail.com:587/"
+set smtp_pass = "password"
+set move = no
+set imap_keepalive = 900
+
