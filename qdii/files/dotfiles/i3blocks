@@ -28,10 +28,11 @@ command=/usr/lib/i3blocks/$BLOCK_NAME
 separator_block_width=20
 markup=pango
 
-[time]
-label=
-command=date '+%Y-%m-%d - %H:%M:%S'
-interval=5
+[email]
+label=
+command=$SCRIPT_DIR/email/email
+instance=gmail
+interval=600
 separator=true
 
 [weather]
