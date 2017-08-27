@@ -13,6 +13,7 @@ set smtp_pass = ""
 set move = no
 set imap_keepalive = 900
 set sort=reverse-date-received
+set mailcap_path=~/.mutt/mailcap
 
 macro index A \
     "<tag-pattern>~O<enter><tag-prefix><clear-flag>O<untag-pattern>.<enter>" \

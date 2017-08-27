@@ -10,6 +10,12 @@ class qdii::mutt {
     source => 'puppet:///modules/qdii/dotfiles/muttrc',
     mode => '0600',
   }
+  file { 'mailcap':
+    ensure => file,
+    path => '/home/qdii/.mutt/mailcap',
+    source => 'puppet:///modules/qdii/misc/mailcap',
+    mode => '0600',
+  }
   file { 'mutt-solarized':
     ensure => file,
     path => '/home/qdii/.mutt/mutt-colors-solarized-dark-256.muttrc',
