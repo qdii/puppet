@@ -29,4 +29,36 @@ class qdii::i3 {
     group => 'qdii',
     mode => '0600',
   }
+  file { 'i3get':
+    ensure => file,
+    path => '/usr/local/bin/i3get',
+    source => 'puppet:///modules/qdii/misc/i3get',
+    owner => 'qdii',
+    group => 'qdii',
+    mode => '0777',
+  }
+  file { 'i3cast':
+    ensure => file,
+    path => '/usr/local/bin/i3cast',
+    source => 'puppet:///modules/qdii/misc/i3cast',
+    owner => 'qdii',
+    group => 'qdii',
+    mode => '0777',
+  }
+  file { 'i3run':
+    ensure => file,
+    path => '/usr/local/bin/i3run',
+    source => 'puppet:///modules/qdii/misc/i3run',
+    owner => 'qdii',
+    group => 'qdii',
+    mode => '0777',
+  }
+  file { 'i3exit':
+    ensure => file,
+    path => '/usr/local/bin/i3exit',
+    source => 'puppet:///modules/qdii/misc/i3exit',
+    owner => 'qdii',
+    group => 'qdii',
+    mode => '0777',
+  }
 }
