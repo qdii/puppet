@@ -56,11 +56,13 @@ HOSTS="ptpb.pw"
 # Filename and location of recording before saving
 TMP_FILE=/tmp/tmpcast.mkv
 
+RESOLUTION=$(xrandr | grep \* | awk '{print $1}')
+
 # Command used for recording, it works well for my screen,
 # but you might want to change at least -s 1366x768 to match
 # your resolution.
 COMMAND="ffmpeg -thread_queue_size 128 -f x11grab -r 30 \
--s 1366x768 -i :0.0 -vcodec libx264 -preset ultrafast \
+-s $RESOLUTION -i :0.0 -vcodec libx264 -preset ultrafast \
 -threads 0 -y $TMP_FILE"
 
 [[ -n $GIF_IS_JIF ]] && HOSTS+="\ngfycat"

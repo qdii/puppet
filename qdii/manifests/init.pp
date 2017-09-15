@@ -6,6 +6,7 @@ class qdii {
   include qdii::vim
   include qdii::virtualbox
   include qdii::wireshark
+  include qdii::zsh
 
   User <| title == me |>
 }
