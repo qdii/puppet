@@ -8,9 +8,9 @@ class qdii::i3 {
     name => 'i3blocks',
     require => Package['i3'],
   }
-  package { 'i3lock':
+  package { 'i3lock-color-git':
     ensure => 'latest',
-    name => 'i3lock',
+    name => 'i3lock-color-git',
     require => Package['i3'],
   }
   file { 'i3config':
