@@ -191,6 +191,7 @@ hide_edge_borders both
 
 # No titlebar on firefox
 for_window [class="Firefox"] border pixel 1
+for_window [class="URxvt"] border pixel 1
 
 # pulseaudio
 exec --no-startup-id "pulseaudio -D"
