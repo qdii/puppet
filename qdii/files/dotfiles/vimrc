@@ -179,6 +179,11 @@ set laststatus=2
 set encoding=utf-8
 let g:vim_json_warnings = 0
 let g:sneak#streak = 1
+let g:tmuxline_preset = {
+      \'a'    : '#( whoami )',
+      \'b'    : '#h',
+      \'z'    : ['%R', '%a', '%Y']}
+
 let g:clever_f_not_overwrites_standard_mappings = 1
 nmap e <Plug>(clever-f-f)
 xmap e <Plug>(clever-f-f)
@@ -229,6 +234,7 @@ Plugin 'gregsexton/gitv'
 Plugin 'rhysd/clever-f.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'hdima/python-syntax'
+Plugin 'edkolev/tmuxline.vim'
 
 
 call vundle#end()
