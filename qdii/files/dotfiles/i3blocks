@@ -94,9 +94,10 @@ interval=10
 separator=true
 
 [bandwidth]
-command=$SCRIPT_DIR/bandwidth/bandwidth -i wlp58s0
+command=$SCRIPT_DIR/bandwidth/bandwidth -i' ' -o' '
+instance=wlp58s0
 separator=true
-interval=persist
+interval=5
 
 # CPU usage
 #
