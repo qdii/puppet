@@ -1,0 +1,65 @@
+#include ".Xresources.dark"
+
+xterm*termName: xterm-256color
+xterm*locale: true
+xterm*utf8: 2
+
+Xft.dpi:144
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+URxvt.font: xft:Inconsolata for Powerline:size=10,hinting=True;antialias:True,xft:WenQuanYi Bitmap Song-10:medium;antialias=False,xft:WenQuanYi Zen Hei-10:medium;antialias=True,xft:HanaMinA-10:medium;antialias:True,xft:HanaMinB-10:medium;antialias:True,xft:HanaMinPlus-10:medium;antialias:True
+URxvt.letterSpace: -1
+URxvt.scrollBar: false
+URxvt*urlLauncher: /usr/bin/firefox
+
+! special
+URxvt*foreground:   #657b83
+URxvt*background:   #002b36
+URxvt*cursorColor:  #93a1a1
+URxvt*pointerColorBackground: #586e75
+URxvt*pointerColorForeground: #93a1a1
+
+! black
+URxvt*color0:       #073642
+URxvt*color8:       #002b36
+
+! red
+URxvt*color1:       #dc322f
+URxvt*color9:       #dc322f
+
+! green
+URxvt*color2:       #859900
+URxvt*color10:      #859900
+
+! yellow
+URxvt*color3:       #b58900
+URxvt*color11:      #b58900
+
+! blue
+URxvt*color4:       #268bd2
+URxvt*color12:      #268bd2
+
+! magenta
+URxvt*color5:       #6c71c4
+URxvt*color13:      #6c71c4
+
+! cyan
+URxvt*color6:       #2aa198
+URxvt*color14:      #2aa198
+
+! white
+URxvt*color7:       #93a1a1
+URxvt*color15:      #fdf6e3
+
+rofi.color-enabled: true
+rofi.color-window: #002b37, #002b37, #003642
+rofi.color-normal: #002b37, #819396, #002b37, #003642, #819396
+rofi.color-active: #002b37, #008ed4, #002b37, #003642, #008ed4
+rofi.color-urgent: #002b37, #da4281, #002b37, #003642, #da4281
+
+Keepassx2*background: S_base0
