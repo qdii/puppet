@@ -12,7 +12,7 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-URxvt.font: xft:Inconsolata for Powerline:size=10,hinting=True;antialias:True,xft:WenQuanYi Bitmap Song-10:medium;antialias=False,xft:WenQuanYi Zen Hei-10:medium;antialias=True,xft:HanaMinA-10:medium;antialias:True,xft:HanaMinB-10:medium;antialias:True,xft:HanaMinPlus-10:medium;antialias:True
+URxvt.font: xft:Inconsolata Nerd Font Mono:style=Medium:size=9
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt*urlLauncher: /usr/bin/firefox
