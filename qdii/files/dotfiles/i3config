@@ -202,11 +202,13 @@ for_window [class="URxvt"] border pixel 1
 for_window [class="xpad"] floating enable
 assign [class="xpad"] 10: 
 exec --no-startup-id i3-msg "workspace 10: ; exec --no-startup-id xpad"
+for_window [class="xpad"] move to workspace 10: 
 
 # Spotify
 assign [class="Spotify"] 9: 
 for_window [class="Spotify"] border pixel 1
 exec --no-startup-id "spotify"
+for_window [class="Spotify"] move to workspace 9: 
 
 # pulseaudio
 exec --no-startup-id "pulseaudio -D"
