@@ -86,28 +86,28 @@ bindcode $mod+38 focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindcode $mod+10 workspace 1
-bindcode $mod+11 workspace 2
-bindcode $mod+12 workspace 3
+bindcode $mod+10 workspace 1: 
+bindcode $mod+11 workspace 2: 
+bindcode $mod+12 workspace 3: 
 bindcode $mod+13 workspace 4
 bindcode $mod+14 workspace 5
 bindcode $mod+15 workspace 6
 bindcode $mod+16 workspace 7
 bindcode $mod+17 workspace 8
-bindcode $mod+18 workspace 9
-bindcode $mod+19 workspace 10
+bindcode $mod+18 workspace 9: 
+bindcode $mod+19 workspace 10: 
 
 # move focused container to workspace
-bindcode $mod+Shift+10 move container to workspace 1
-bindcode $mod+Shift+11 move container to workspace 2
-bindcode $mod+Shift+12 move container to workspace 3
+bindcode $mod+Shift+10 move container to workspace 1: 
+bindcode $mod+Shift+11 move container to workspace 2: 
+bindcode $mod+Shift+12 move container to workspace 3: 
 bindcode $mod+Shift+13 move container to workspace 4
 bindcode $mod+Shift+14 move container to workspace 5
 bindcode $mod+Shift+15 move container to workspace 6
 bindcode $mod+Shift+16 move container to workspace 7
 bindcode $mod+Shift+17 move container to workspace 8
-bindcode $mod+Shift+18 move container to workspace 9
-bindcode $mod+Shift+19 move container to workspace 10
+bindcode $mod+Shift+18 move container to workspace 9: 
+bindcode $mod+Shift+19 move container to workspace 10: 
 
 # reload the configuration file
 bindcode $mod+Shift+54 reload
@@ -183,15 +183,30 @@ bindcode --release $mod+Shift+107 exec --no-startup-id i3cast
 
 # colors
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
 client.background       #ffffff
+client.unfocused #333333 #333333 #FFFFFF #333333
+client.focused_inactive #333333 #333333 #FFFFFF #000000
+client.focused #000000 #000000 #FFFFFF #000000
+
 
 # no side border
 hide_edge_borders both
 
 # No titlebar on firefox
 for_window [class="Firefox"] border pixel 1
+assign [class="Firefox"] 1: 
+
 for_window [class="URxvt"] border pixel 1
+
+# Xpad
+for_window [class="xpad"] floating enable
+assign [class="xpad"] 10: 
+exec --no-startup-id i3-msg "workspace 10: ; exec --no-startup-id xpad"
+
+# Spotify
+assign [class="Spotify"] 9: 
+for_window [class="Spotify"] border pixel 1
+exec --no-startup-id "spotify"
 
 # pulseaudio
 exec --no-startup-id "pulseaudio -D"
@@ -200,7 +215,8 @@ exec --no-startup-id "pulseaudio -D"
 exec --no-startup-id "nm-applet"
 
 # fading-in / fading-out
-exec_always --no-startup-id "compton -b --xrender-sync --xrender-sync-fence --fading --no-dock-shadow --no-dnd-shadow --fade-in-step=0.07 --fade-out-step=0.07"
+exec_always --no-startup-id "compton -b --backend xrender --fading --no-dock-shadow --no-dnd-shadow --fade-in-step=0.07 --fade-out-step=0.07"
+# exec_always --no-startup-id "compton -b --xrender-sync --xrender-sync-fence --fading --no-dock-shadow --no-dnd-shadow --fade-in-step=0.07 --fade-out-step=0.07"
 
 # background picture
 exec_always --no-startup-id "feh --bg-scale .background.jpg"
@@ -217,10 +233,6 @@ mode $keyboardMode {
     bindsym Escape mode "default"
 }
 
-client.unfocused #333333 #333333 #FFFFFF #333333
-client.focused_inactive #333333 #333333 #FFFFFF #000000
-client.focused #000000 #000000 #FFFFFF #000000
-
 # Tray for bluetooth
 exec --no-startup-id "blueberry-tray"
 
@@ -229,3 +241,13 @@ exec --no-startup-id "xautolock -time 10 -locker i3lock"
 
 # Dunst
 exec --no-startup-id "dunst"
+
+# Start a session of firefox
+exec --no-startup-id "firefox"
+
+# Start a terminal
+exec --no-startup-id i3-msg 'workspace 2: ; exec i3-sensible-terminal; workspace 1'
+
+# Scratchpad
+bindcode $mod+Shift+96 move scratchpad
+bindcode $mod+96 scratchpad show
