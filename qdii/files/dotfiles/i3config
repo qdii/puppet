@@ -201,7 +201,7 @@ for_window [class="URxvt"] border pixel 1
 # Xpad
 for_window [class="xpad"] floating enable
 assign [class="xpad"] 10: 
-exec --no-startup-id i3-msg "workspace 10: ; exec --no-startup-id xpad"
+exec --no-startup-id "xpad"
 for_window [class="xpad"] move to workspace 10: 
 
 # Spotify
