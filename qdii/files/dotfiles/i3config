@@ -95,7 +95,7 @@ bindcode $mod+15 workspace 6
 bindcode $mod+16 workspace 7
 bindcode $mod+17 workspace 8
 bindcode $mod+18 workspace 9: 
-bindcode $mod+19 workspace 10: 
+bindcode $mod+19 workspace 10: 
 
 # move focused container to workspace
 bindcode $mod+Shift+10 move container to workspace 1: 
@@ -107,7 +107,7 @@ bindcode $mod+Shift+15 move container to workspace 6
 bindcode $mod+Shift+16 move container to workspace 7
 bindcode $mod+Shift+17 move container to workspace 8
 bindcode $mod+Shift+18 move container to workspace 9: 
-bindcode $mod+Shift+19 move container to workspace 10: 
+bindcode $mod+Shift+19 move container to workspace 10: 
 
 # reload the configuration file
 bindcode $mod+Shift+54 reload
@@ -148,12 +148,15 @@ bar {
     font pango:Inconsolata for Powerline 10, Awesome 10
     status_command SCRIPT_DIR=/home/qdii/.i3/i3blocks-contrib i3blocks
     tray_output primary
-  colors {
-    statusline #AAAAAA
-    background #333333
-    focused_workspace #282828 #282828 #FFFFFF
-    inactive_workspace #333333 #333333 #AAAAAA
-  }
+	colors {
+		background #002b36
+		statusline #839496
+		separator  #586e75
+		focused_workspace  #b58900 #b58900 #002b36
+		active_workspace   #586e75 #586e75 #002b36
+		inactive_workspace #073642 #002b36 #839496
+		urgent_workspace   #dc322f #dc322f #fdf6e3
+	}
 }
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
@@ -182,15 +185,14 @@ bindcode --release $mod+107 exec --no-startup-id scrot -s -e 'mv $f /tmp/ && gim
 bindcode --release $mod+Shift+107 exec --no-startup-id i3cast
 
 # colors
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-client.background       #ffffff
-client.unfocused #333333 #333333 #FFFFFF #333333
-client.focused_inactive #333333 #333333 #FFFFFF #000000
-client.focused #000000 #000000 #FFFFFF #000000
+client.focused          #002b36 #586e75 #fdf6e3 #268bd2
+client.focused_inactive #002b36 #073642 #839496 #073642
+client.unfocused        #002b36 #073642 #839496 #073642
+client.urgent #002b36 #dc322f #fdf6e3 #002b36
 
 
 # no side border
-hide_edge_borders both
+hide_edge_borders smart
 
 # No titlebar on firefox
 for_window [class="Firefox"] border pixel 1
@@ -200,15 +202,18 @@ for_window [class="URxvt"] border pixel 1
 
 # Xpad
 for_window [class="xpad"] floating enable
-assign [class="xpad"] 10: 
 exec --no-startup-id "xpad"
-for_window [class="xpad"] move to workspace 10: 
 
 # Spotify
 assign [class="Spotify"] 9: 
 for_window [class="Spotify"] border pixel 1
 exec --no-startup-id "spotify"
 for_window [class="Spotify"] move to workspace 9: 
+
+# Telegram
+assign [class="TelegramDesktop"] workspace 10: 
+exec --no-startup-id "telegram-desktop"
+for_window [class="TelegramDesktop"] border pixel 1
 
 # pulseaudio
 exec --no-startup-id "pulseaudio -D"
