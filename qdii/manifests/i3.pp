@@ -13,13 +13,21 @@ class qdii::i3 {
     name => 'i3lock-color-git',
     require => Package['i3'],
   }
-  file { 'i3config':
-    ensure => file,
-    path => '/home/qdii/.i3/config',
-    source => 'puppet:///modules/qdii/dotfiles/i3config',
+  file { 'i3-config-directory':
+    ensure => 'directory',
     owner => 'qdii',
     group => 'qdii',
     mode => '0600',
+    path => '/home/qdii/.i3',
+  }
+  file { 'i3config':
+    ensure  => file,
+    path    => '/home/qdii/.i3/config',
+    source  => 'puppet:///modules/qdii/dotfiles/i3config',
+    owner   => 'qdii',
+    group   => 'qdii',
+    mode    => '0600',
+    require =>  File['i3-config-directory'],
   }
   file { 'i3blocks':
     ensure => file,
