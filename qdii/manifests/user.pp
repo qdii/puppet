@@ -5,14 +5,22 @@ class qdii::user {
   group { 'wheel':
     ensure => 'present'
   }
+  group { 'lp':
+    ensure => 'present'
+  }
   @user { 'me':
     ensure => 'present',
     name => 'qdii',
-    groups => ['qdii', 'wheel'],
+    groups => [
+      'qdii',
+      'wheel',
+      'lp',
+    ],
     membership => minimum,
     require => [
       Group['qdii'],
       Group['wheel'],
+      Group['lp'],
     ],
   }
 }
