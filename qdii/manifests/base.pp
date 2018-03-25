@@ -4,6 +4,8 @@ class qdii::base {
         'aurutils',
         'curl',
         'exa',
+        'fcitx',
+        'feh',
         'firefox',
         'gimp-git',
         'git',
