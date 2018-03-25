@@ -235,6 +235,7 @@ Plugin 'rhysd/clever-f.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'hdima/python-syntax'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'rodjek/vim-puppet'
 
 
 call vundle#end()
