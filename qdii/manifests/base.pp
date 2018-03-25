@@ -11,6 +11,7 @@ class qdii::base {
         'lsof',
         'nmap',
         'openvpn',
+        'rxvt-unicode',
         'tmux',
         'tcpdump',
         'traceroute',
