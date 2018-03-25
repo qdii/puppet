@@ -17,7 +17,6 @@ class qdii::base {
         'tmux',
         'tcpdump',
         'traceroute',
-        'xorg-server',
         'vlc',]:
       ensure => installed
     }
