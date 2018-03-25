@@ -3,6 +3,7 @@ class qdii::base {
         'audacity',
         'aurutils',
         'curl',
+        'exa',
         'firefox',
         'gimp-git',
         'git',
