@@ -1,4 +1,5 @@
 class qdii {
+  include qdii::arch
   include qdii::base
   include qdii::dunst
   include qdii::i3
