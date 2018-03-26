@@ -1,6 +1,5 @@
-include stdlib
-
 class qdii::arch {
+  include stdlib
   file { 'custom':
     ensure  => file,
     path    => '/etc/pacman.d/custom',
