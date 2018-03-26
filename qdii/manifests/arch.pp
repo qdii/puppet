@@ -1,3 +1,5 @@
+include stdlib
+
 class qdii::arch {
   file { 'custom':
     ensure  => file,
