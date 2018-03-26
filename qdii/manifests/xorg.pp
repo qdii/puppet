@@ -19,7 +19,7 @@ class qdii::xorg {
     group   => 'qdii',
     mode    => '0600',
   }
-  file { 'Xresources':
+  file { 'Xresources.dark':
     ensure  => file,
     path    => '/home/qdii/.Xresources.dark',
     source  => 'puppet:///modules/qdii/dotfiles/Xresources.dark',
