@@ -2,7 +2,7 @@ class qdii::arch {
   file { 'custom':
     ensure  => file,
     path    => '/etc/pacman.d/custom',
-    sources => 'puppet://modules/qdii/dotfiles/custom'
+    sources => 'puppet://modules/qdii/dotfiles/custom',
     owner   => 'root',
     group   => 'root',
     mode    => '0600',
