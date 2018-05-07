@@ -54,7 +54,21 @@ ZSH_THEME="blinks"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux git vim zsh-256color cp screen sudo dirhistory git debian tmux zsh-autosuggestions pacman)
+plugins=(
+    archlinux
+    copyfile
+    cp
+    debian
+    dirhistory
+    git
+    pacman
+    screen
+    sudo
+    tmux
+    vim
+    zsh-autosuggestions
+    zsh-256color
+)
 
 source $ZSH/oh-my-zsh.sh
 
