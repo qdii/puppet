@@ -1,24 +1,25 @@
 class qdii::base {
     package { [
-        'audacity',
+        #'audacity',
         'aurutils',
         'curl',
         'exa',
-        'fcitx',
+        #'fcitx',
         'feh',
-        'firefox',
-        'gimp-git',
+        #'firefox',
+        #'gimp-git',
         'git',
         'irssi',
         'lsof',
         'nmap',
         'openvpn',
-        'rofi',
-        'rxvt-unicode',
+        #'rofi',
+        #'rxvt-unicode',
         'tmux',
         'tcpdump',
         'traceroute',
-        'vlc',]:
+        #'vlc',
+    ]:
       ensure => installed
     }
 }
