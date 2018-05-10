@@ -13,6 +13,7 @@ class qdii::base {
         'lsof',
         'nmap',
         'openvpn',
+        'pygmentize',
         #'rofi',
         #'rxvt-unicode',
         'tmux',
