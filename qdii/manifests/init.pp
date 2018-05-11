@@ -1,6 +1,7 @@
 class qdii {
   include qdii::arch
   include qdii::base
+  include qdii::docker
   #  include qdii::dunst
   #  include qdii::i3
   include qdii::user
