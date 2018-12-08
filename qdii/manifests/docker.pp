@@ -16,6 +16,5 @@ class qdii::docker {
   User <| title == me |> {
     require =>  Package['docker'],
     groups +> 'docker',
-
   }
 }
