@@ -1,7 +1,7 @@
 class qdii::docker {
   package { 'policykit':
     ensure => 'latest',
-    name   => 'policykit',
+    name   => 'polkit',
   }
   package { 'docker':
     ensure  => 'latest',
