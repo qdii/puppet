@@ -1,25 +1,34 @@
 class qdii::base {
+    # Command line
     package { [
-        #'audacity',
         'aurutils',
         'curl',
         'exa',
-        #'fcitx',
         'feh',
-        #'firefox',
-        #'gimp-git',
         'git',
         'irssi',
         'lsof',
         'nmap',
         'openvpn',
         'pygmentize',
-        #'rofi',
-        #'rxvt-unicode',
         'tmux',
         'tcpdump',
         'traceroute',
-        #'vlc',
+    ]:
+      ensure => installed
+    }
+
+    # Desktop
+    package { [
+        'audacity',
+        'fcitx',
+        'firefox',
+        'gimp-git',
+        'pulseaudio',
+        'pulseaudio-bluetooth',
+        'rofi',
+        'rxvt-unicode',
+        'vlc',
     ]:
       ensure => installed
     }
