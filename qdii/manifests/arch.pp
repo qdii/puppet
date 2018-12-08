@@ -27,15 +27,17 @@ class qdii::arch {
   }
   package { 'repoctl':
     ensure          => installed,
-    name            => File['repoctl-source']['path']
+    name            => File['repoctl-source']['path'],
     require         => File['repoctl-source'],
     provider        => 'pacman',
     install_options => '-U',
   }
   exec { 'create-custom-repo':
-    command => 'repo-add /var/cache/pacman/custom/custom.db.tar',
+    command => '/usr/bin/repo-add /var/cache/pacman/custom/custom.db.tar',
     require =>  [
       File['pacman.conf', 'custom', 'custom_directory'],
       Package['repoctl'],
     ]
+  }
 }
+
