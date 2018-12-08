@@ -5,10 +5,12 @@ class qdii::base {
         'curl',
         'exa',
         'feh',
+        'fwupd',
         'git',
         'irssi',
         'lsof',
         'nmap',
+        'net-tools',
         'openvpn',
         'pygmentize',
         'tmux',
@@ -20,15 +22,19 @@ class qdii::base {
 
     # Desktop
     package { [
+        'acpi',
         'audacity',
         'fcitx',
         'firefox',
         'gimp-git',
+        'nextcloud-client',
+        'pavucontrols',
         'pulseaudio',
         'pulseaudio-bluetooth',
         'rofi',
         'rxvt-unicode',
         'vlc',
+        'xorg-xev',
     ]:
       ensure => installed
     }
