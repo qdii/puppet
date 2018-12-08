@@ -28,7 +28,6 @@ class qdii::arch {
   file { 'custom_directory':
     ensure => 'directory',
     path   => '/var/cache/pacman/custom',
-    type   => 'directory',
     owner  => User['me'],
   }
   package { 'repoctl':
