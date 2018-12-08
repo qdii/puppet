@@ -13,11 +13,9 @@ class qdii::docker {
     name    => 'docker-compose',
     require => Package['docker']
   }
-  @user { 'me':
-    ensure => 'present',
-    name   => 'qdii',
-    groups => [
-      'docker'
-    ]
+  User <| title == me |> {
+    require =>  Package['docker'],
+    groups +> 'docker',
+
   }
 }
