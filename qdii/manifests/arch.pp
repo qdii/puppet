@@ -9,7 +9,7 @@ class qdii::arch {
     source  => 'puppet:///modules/qdii/dotfiles/custom',
     owner   => 'root',
     group   => 'root',
-    mode    => '0600',
+    mode    => '0644',
   }
   file { 'pacman.conf':
     ensure  => file,
@@ -17,7 +17,7 @@ class qdii::arch {
     source  => 'puppet:///modules/qdii/dotfiles/pacman.conf',
     owner   => 'root',
     group   => 'root',
-    mode    => '0600',
+    mode    => '0644',
   }
   file { 'repoctl-source':
     source         => 'https://github.com/cassava/repoctl/releases/download/v0.18/repoctl-0.18.tar.gz',
