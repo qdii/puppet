@@ -5,7 +5,6 @@
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
 color=#839496
-separator_block_width=15
 command=/home/qdii/.i3/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=20
 markup=pango
@@ -17,89 +16,95 @@ instance=7778677
 interval=60
 
 [pacman-updates]
-label=<span color='aqua'></span>
+label=<span color='aqua'> </span>
 command=$SCRIPT_DIR/arch-update/arch-update.py -b"#839496" -u"#839496"
 markup=pango
 interval=3600
 
 [memory]
-label=<span color='aqua'></span>
+label=<span color='aqua'> </span>
 command=/usr/lib/i3blocks/memory
 separator=true
 interval=30
 
 [memory]
-label=<span color='aqua'></span>
+label=<span color='aqua'> </span>
 command=/usr/lib/i3blocks/memory
 instance=swap
 separator=true
 interval=30
 
 [disk]
-label=<span color='aqua'></span>
+label=<span color='aqua'> </span>
 command=$SCRIPT_DIR/disk/disk
 interval=30
 
 [iface]
-label=<span color='aqua'></span>
-instance=wlp58s0
+label=<span color='aqua'> </span>
+instance=wlp60s0
 interval=10
 separator=true
 
 [wifi]
-label=<span color='aqua'></span>
-instance=wlp58s0
+label=<span color='aqua'> </span>
+instance=wlp60s0
 interval=10
 separator=true
 
 [bandwidth]
-command=$SCRIPT_DIR/bandwidth/bandwidth -i "<span color='aqua'> </span>" -o "<span color='aqua'> </span>"
-instance=wlp58s0
+command=$SCRIPT_DIR/bandwidth/bandwidth -i "<span color='aqua'>  </span>" -o "<span color='aqua'> </span>"
+instance=wlp60s0
 separator=true
 interval=5
 
-[cpu_usage]
-label=<span color='aqua'></span>
+[governor]
+label=<span color='aqua'> </span>
 interval=10
-min_width=100.00%
+separator=false
+
+[cpu_usage]
+interval=10
+min_width=99.99%
 separator=true
 
 [load_average]
-label=<span color='aqua'></span>
+label=<span color='aqua'> </span>
 interval=10
 separator=true
 
 [temperature]
-label=<span color='aqua'></span>
+label=<span color='aqua'> </span>
 interval=10
 
 [volume-pulseaudio]
-label=<span color='aqua'>♪</span>
+label=<span color='aqua'>♪ </span>
 command=$SCRIPT_DIR/volume-pulseaudio/volume-pulseaudio -C"#839496" -H" " -M" " -L" " -X" " -a
 interval=once
 signal=1
 separator=true
 
 [disk-io]
-label=<span color='aqua'></span>
+label=<span color='aqua'> </span>
 command=$SCRIPT_DIR/disk-io/disk-io
 interval=persist
 
 [brightness]
-label=<span color='aqua'></span>
+label=<span color='aqua'> </span>
 command=$SCRIPT_DIR/brightness/brightness
 interval=10
 signal=1
 separator=true
 
 [battery]
-label=<span color='aqua'>⚡</span>
+label=<span color='aqua'>⚡ </span>
 interval=30
 separator=true
 
 [time]
-label=<span color='aqua'></span>
-instance=%d-%m-%Y %H:%M:%S
+label=<span color='aqua'> </span>
 command=$SCRIPT_DIR/time/time
 interval=5
-
+TZ_FILE=~/.tz
+STRFTIME_FORMAT=%Y-%m-%d %H:%M
+TZONES=$DEFAULT_TZ,America/Los_Angeles
+TZ_LABELS=ZRH,MTV

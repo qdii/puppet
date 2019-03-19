@@ -179,10 +179,10 @@ bindcode 232 "exec --no-startup-id xbacklight -5"
 bindcode 233 "exec --no-startup-id xbacklight +5"
 
 # Screenshots
-bindcode --release $mod+107 exec --no-startup-id scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
+bindcode --release $mod+95 exec --no-startup-id scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # Screencast
-bindcode --release $mod+Shift+107 exec --no-startup-id i3cast
+bindcode --release $mod+Shift+95 exec --no-startup-id i3cast
 
 # colors
 client.focused          #002b36 #586e75 #fdf6e3 #268bd2
@@ -215,9 +215,6 @@ assign [class="TelegramDesktop"] workspace 10: 
 exec --no-startup-id "telegram-desktop"
 for_window [class="TelegramDesktop"] border pixel 1
 
-# pulseaudio
-exec --no-startup-id "pulseaudio -D"
-
 # nm-applet
 exec --no-startup-id "nm-applet"
 
@@ -244,7 +241,7 @@ mode $keyboardMode {
 exec --no-startup-id "blueberry-tray"
 
 # Autolock
-exec --no-startup-id "xautolock -time 10 -locker i3lock"
+exec --no-startup-id "xautolock -time 10 -locker 'i3lock -B 8'"
 
 # Dunst
 exec --no-startup-id "dunst"
@@ -258,3 +255,6 @@ exec --no-startup-id i3-msg 'workspace 2: ; exec i3-sensible-terminal; worksp
 # Scratchpad
 bindcode $mod+Shift+96 move scratchpad
 bindcode $mod+96 scratchpad show
+
+# Redshift
+exec --no-startup-id "redshift"
