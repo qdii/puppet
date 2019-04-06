@@ -12,7 +12,8 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-URxvt.font: xft:Inconsolata Nerd Font Mono:style=Medium:size=9
+URxvt.depth: 32
+URxvt.font: xft:Inconsolata Nerd Font Mono:style=Medium:size=14
 URxvt.letterSpace: -1
 URxvt.scrollBar: false
 URxvt*urlLauncher: /usr/bin/firefox
@@ -62,4 +63,41 @@ rofi.color-normal: #002b37, #819396, #002b37, #003642, #819396
 rofi.color-active: #002b37, #008ed4, #002b37, #003642, #008ed4
 rofi.color-urgent: #002b37, #da4281, #002b37, #003642, #da4281
 
-Keepassx2*background: S_base0
+! special
+Keepassx2*foreground:   #657b83
+Keepassx2*background:   #002b36
+Keepassx2*cursorColor:  #93a1a1
+Keepassx2*pointerColorBackground: #586e75
+Keepassx2*pointerColorForeground: #93a1a1
+
+! black
+Keepassx2*color0:       #073642
+Keepassx2*color8:       #002b36
+
+! red
+Keepassx2*color1:       #dc322f
+Keepassx2*color9:       #dc322f
+
+! green
+Keepassx2*color2:       #859900
+Keepassx2*color10:      #859900
+
+! yellow
+Keepassx2*color3:       #b58900
+Keepassx2*color11:      #b58900
+
+! blue
+Keepassx2*color4:       #268bd2
+Keepassx2*color12:      #268bd2
+
+! magenta
+Keepassx2*color5:       #6c71c4
+Keepassx2*color13:      #6c71c4
+
+! cyan
+Keepassx2*color6:       #2aa198
+Keepassx2*color14:      #2aa198
+
+! white
+Keepassx2*color7:       #93a1a1
+Keepassx2*color15:      #fdf6e3
