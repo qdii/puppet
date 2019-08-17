@@ -11,15 +11,17 @@ markup=pango
 
 [weather]
 command=$SCRIPT_DIR/weather/weather
-# Dublin
-instance=7778677
+# instance=7778677  # Dublin
+instance=2657896  # Zurich
 interval=60
 
 [pacman-updates]
 label=<span color='aqua'> </span>
-command=$SCRIPT_DIR/arch-update/arch-update.py -b"#839496" -u"#839496"
+command=$SCRIPT_DIR/arch-update/arch-update
 markup=pango
 interval=3600
+BASE_COLOR=#839496
+UPDATE_COLOR=#839496
 
 [memory]
 label=<span color='aqua'> </span>
@@ -106,3 +108,13 @@ TZ_FILE=~/.tz
 STRFTIME_FORMAT=%Y-%m-%d %H:%M
 TZONES=$DEFAULT_TZ,America/Los_Angeles
 TZ_LABELS=ZRH,MTV
+
+[shutdown_menu]
+full_text=<span color='aqua'> </span>
+separator=true
+command=$SCRIPT_DIR/shutdown_menu/shutdown_menu
+ROFI_TEXT=Shutdown
+ROFI_OPTIONS=-width 11 -hide-scrollbar -bw 2
+ENABLE_CONFIRMATIONS=true
+LAUNCHER=rofi
+LOCKSCRIPT=/home/qdii/cld/bin/i3locker
