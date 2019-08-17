@@ -8,6 +8,7 @@ class qdii::base {
         'fwupd',
         'git',
         'irssi',
+        'ipcalc',
         'lsof',
         'nmap',
         'net-tools',
