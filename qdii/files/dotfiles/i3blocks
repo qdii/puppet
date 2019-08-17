@@ -23,20 +23,17 @@ interval=3600
 
 [memory]
 label=<span color='aqua'> </span>
-command=/usr/lib/i3blocks/memory
 separator=true
 interval=30
 
 [memory]
 label=<span color='aqua'> </span>
-command=/usr/lib/i3blocks/memory
 instance=swap
 separator=true
 interval=30
 
 [disk]
 label=<span color='aqua'> </span>
-command=$SCRIPT_DIR/disk/disk
 interval=30
 
 [iface]
@@ -62,9 +59,10 @@ label=<span color='aqua'> </span>
 interval=10
 separator=false
 
-[cpu_usage]
-interval=10
-min_width=99.99%
+[cpu_usage2]
+label=
+command=$SCRIPT_DIR/cpu_usage2/cpu_usage2 -d 1 -l ""
+interval=persist
 separator=true
 
 [load_average]

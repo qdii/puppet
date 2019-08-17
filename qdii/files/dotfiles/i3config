@@ -195,8 +195,8 @@ client.urgent #002b36 #dc322f #fdf6e3 #002b36
 hide_edge_borders smart
 
 # No titlebar on firefox
-for_window [class="Firefox"] border pixel 1
-assign [class="Firefox"] 1: 
+for_window [class="firefox"] border pixel 1
+assign [class="firefox"] 1: 
 
 for_window [class="URxvt"] border pixel 1
 
@@ -241,16 +241,16 @@ mode $keyboardMode {
 exec --no-startup-id "blueberry-tray"
 
 # Autolock
-exec --no-startup-id "xautolock -time 10 -locker 'i3lock -B 8'"
+exec --no-startup-id "xautolock -time 10 -locker /home/qdii/cld/bin/i3locker"
+
+# Autolock when resuming from hibernation
+exec --no-startup-id "xss-lock -- /home/qdii/cld/bin/i3locker"
 
 # Dunst
 exec --no-startup-id "dunst"
 
 # Start a session of firefox
 exec --no-startup-id "firefox"
-
-# Start a terminal
-exec --no-startup-id i3-msg 'workspace 2: ; exec i3-sensible-terminal; workspace 1'
 
 # Scratchpad
 bindcode $mod+Shift+96 move scratchpad
