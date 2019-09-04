@@ -11,8 +11,8 @@ markup=pango
 
 [weather]
 command=$SCRIPT_DIR/weather/weather
-# instance=7778677  # Dublin
-instance=2657896  # Zurich
+# Zurich
+instance=2657896
 interval=60
 
 [pacman-updates]

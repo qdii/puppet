@@ -219,8 +219,7 @@ for_window [class="TelegramDesktop"] border pixel 1
 exec --no-startup-id "nm-applet"
 
 # fading-in / fading-out
-exec_always --no-startup-id "compton -b --backend xrender --fading --no-dock-shadow --no-dnd-shadow --fade-in-step=0.07 --fade-out-step=0.07"
-# exec_always --no-startup-id "compton -b --xrender-sync --xrender-sync-fence --fading --no-dock-shadow --no-dnd-shadow --fade-in-step=0.07 --fade-out-step=0.07"
+exec_always --no-startup-id "compton -b --config /home/qdii/.config/compton.conf"
 
 # background picture
 exec_always --no-startup-id "feh --bg-scale .background.jpg"
