@@ -1,5 +1,5 @@
 class qdii::arch {
-  User <| title == me |> {
+  User <| title == 'me' |> {
     require =>  Package['docker'],
     groups +> 'docker',
   }
@@ -19,23 +19,15 @@ class qdii::arch {
     group   => 'root',
     mode    => '0644',
   }
-  file { 'repoctl-source':
-    source         => 'https://github.com/cassava/repoctl/releases/download/v0.18/repoctl-0.18.tar.gz',
-    path           => '/tmp/repoctl-0.18.tar.gz',
-    checksum       => 'sha256',
-    checksum_value => 'f7e7b850a60f86ab5b2601e834b872197efffe034b45488cccb949c138af18b5',
-  }
   file { 'custom_directory':
     ensure => 'directory',
     path   => '/var/cache/pacman/custom',
-    owner  => User['me'],
+    owner  => 'qdii',
   }
   package { 'repoctl':
     ensure          => installed,
-    name            => File['repoctl-source']['path'],
-    require         => File['repoctl-source'],
+    source          => 'https://github.com/cassava/repoctl/releases/download/v0.18/repoctl-0.18.tar.gz',
     provider        => 'pacman',
-    install_options => '-U',
   }
   exec { 'create-custom-repo':
     command => '/usr/bin/repo-add /var/cache/pacman/custom/custom.db.tar',
