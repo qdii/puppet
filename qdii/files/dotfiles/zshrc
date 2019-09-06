@@ -9,6 +9,9 @@ export ZSH=/home/qdii/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="blinks"
 
+# Tells pygments to use solarized-dark theme, so that ccat works correctly
+ZSH_COLORIZE_STYLE="solarized-dark"
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -62,13 +65,10 @@ plugins=(
     debian
     dirhistory
     git
-    pacman
     screen
     sudo
     tmux
-    vim
     zsh-autosuggestions
-    zsh-256color
 )
 
 source $ZSH/oh-my-zsh.sh
