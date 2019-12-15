@@ -5,7 +5,7 @@ class qdii::docker {
   }
   package { $polkit:
     ensure => 'latest',
-    alias  => 'polkit',
+    alias  => 'policykit',
   }
   package { 'docker':
     ensure  => 'latest',
