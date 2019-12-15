@@ -2,7 +2,6 @@ class qdii::base {
     # Command line
     package { [
         'curl',
-        'exa',
         'feh',
         'fwupd',
         'git',
