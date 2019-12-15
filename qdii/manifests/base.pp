@@ -1,7 +1,6 @@
 class qdii::base {
     # Command line
     package { [
-        'aurutils',
         'curl',
         'exa',
         'feh',
@@ -19,6 +18,14 @@ class qdii::base {
         'traceroute',
     ]:
       ensure => installed
+    }
+
+    if $::operatingsystem == 'Archlinux' {
+      package { [
+          'aurutils',
+      ]:
+        ensure =>  installed
+      }
     }
 
     # Desktop
