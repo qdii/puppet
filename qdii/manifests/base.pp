@@ -11,7 +11,6 @@ class qdii::base {
         'nmap',
         'net-tools',
         'openvpn',
-        'pygmentize',
         'tmux',
         'tcpdump',
         'traceroute',
@@ -22,6 +21,15 @@ class qdii::base {
     if $::operatingsystem == 'Archlinux' {
       package { [
           'aurutils',
+          'pygmentize',
+      ]:
+        ensure =>  installed
+      }
+    }
+
+    if $::operatingsystem == 'Ubuntu' {
+      package { [
+          'python-pygments',
       ]:
         ensure =>  installed
       }
