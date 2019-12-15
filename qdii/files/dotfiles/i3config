@@ -219,7 +219,7 @@ for_window [class="TelegramDesktop"] border pixel 1
 exec --no-startup-id "nm-applet"
 
 # fading-in / fading-out
-exec_always --no-startup-id "compton -b --config /home/qdii/.config/compton.conf"
+exec_always --no-startup-id "picom -b"
 
 # background picture
 exec_always --no-startup-id "feh --bg-scale .background.jpg"
