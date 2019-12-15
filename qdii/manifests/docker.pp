@@ -1,7 +1,11 @@
 class qdii::docker {
-  package { 'policykit':
+  $polkit = $::operatingsystem ? {
+    'Archlinux' => 'polkit',
+    'Ubuntu'    => 'polkit-1',
+  }
+  package { $polkit:
     ensure => 'latest',
-    name   => 'polkit',
+    alias  => 'polkit',
   }
   package { 'docker':
     ensure  => 'latest',
