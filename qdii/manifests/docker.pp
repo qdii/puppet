@@ -1,5 +1,16 @@
 class qdii::docker {
-  if $::operatingsystem == 'Archlinux' {
+  if ::operatingsystem == 'Ubuntu' {
+    include 'docker'
+    class { 'docker':
+      ensure       => latest,
+      docker_users => ['qdii'],
+    }
+
+    class { 'docker::compose':
+      ensure => latest,
+    }
+  }
+  elsif ::operatingsystem == 'Archlinux' {
     package { 'polkit':
       ensure => 'latest',
     }
@@ -7,20 +18,14 @@ class qdii::docker {
       ensure  => 'latest',
       require => Package['polkit'],
     }
-  }
-  if $::operatingsystem == 'Ubuntu' {
-    package { 'docker.io':
+    package { 'docker-compose':
       ensure  => 'latest',
-      alias => 'docker'
+      name    => 'docker-compose',
+      require => Package['docker']
     }
-  }
-  package { 'docker-compose':
-    ensure  => 'latest',
-    name    => 'docker-compose',
-    require => Package['docker']
-  }
-  User <| title == me |> {
-    require =>  Package['docker'],
-    groups +> 'docker',
+    User <| title == me |> {
+      require =>  Package['docker'],
+      groups +> 'docker',
+    }
   }
 }

@@ -1,9 +1,5 @@
 class qdii::arch {
   if $::operatingsystem == 'Archlinux' {
-    User <| title == 'me' |> {
-      require =>  Package['docker'],
-      groups +> 'docker',
-    }
     file { 'custom':
       ensure  => file,
       path    => '/etc/pacman.d/custom',
