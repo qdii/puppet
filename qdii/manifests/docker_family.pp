@@ -1,4 +1,4 @@
-class qdii::docker {
+class qdii::docker_family {
   if $::operatingsystem == 'Ubuntu' {
     include 'docker'
     class { 'docker':
