@@ -1,5 +1,5 @@
 class qdii::docker {
-  if ::operatingsystem == 'Ubuntu' {
+  if $::operatingsystem == 'Ubuntu' {
     include 'docker'
     class { 'docker':
       ensure       => latest,
@@ -10,7 +10,7 @@ class qdii::docker {
       ensure => latest,
     }
   }
-  elsif ::operatingsystem == 'Archlinux' {
+  elsif $::operatingsystem == 'Archlinux' {
     package { 'polkit':
       ensure => 'latest',
     }
