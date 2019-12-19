@@ -2,15 +2,6 @@ class qdii {
   include qdii::arch
   include qdii::base
   include qdii::picom
-  if $::operatingsystem == 'Ubuntu' {
-    class { 'docker':
-      ensure       => latest,
-      docker_users =>  ['qdii'],
-    }
-    class { 'docker::compose':
-      ensure => latest,
-    }
-  }
   include qdii::docker_family
   #  include qdii::dunst
   #  include qdii::i3
