@@ -1,11 +1,16 @@
-class qdii::docker_family {
-  if $::operatingsystem == 'Ubuntu' {
-    include 'docker'
-    class { 'docker::compose':
-      ensure => latest,
-    }
+if $::operatingsystem == 'Ubuntu' {
+  class { 'docker':
+    ensure       => latest,
+    docker_users =>  ['qdii'],
   }
-  elsif $::operatingsystem == 'Archlinux' {
+
+  class { 'docker::compose':
+    ensure => latest,
+  }
+}
+
+class qdii::docker_family {
+  if $::operatingsystem == 'Archlinux' {
     package { 'polkit':
       ensure => 'latest',
     }
