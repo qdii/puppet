@@ -1,11 +1,6 @@
 class qdii::docker_family {
   if $::operatingsystem == 'Ubuntu' {
     include 'docker'
-    class { 'docker':
-      ensure       => latest,
-      docker_users => ['qdii'],
-    }
-
     class { 'docker::compose':
       ensure => latest,
     }
