@@ -1,8 +1,5 @@
-class qdii::zsh {
-  package { 'zsh':
-    ensure => 'latest',
-    name   => 'zsh',
-  }
+class qdii::shell {
+  package { 'zsh': ensure => latest }
   file { 'zshrc':
     ensure => 'file',
     owner  => 'qdii',
@@ -18,9 +15,7 @@ class qdii::zsh {
     wget::fetch { "https://download.opensuse.org/repositories/shells:zsh-users:zsh-autosuggestions/xUbuntu_${lsbdistrelease}/Release.key":
       destination => '/tmp/OhMyZshReleaseKey.key',
     }
-    -> exec { 'apt-key add - < /tmp/OhMyZshReleaseKey.key':
-    }
-    -> package { 'zsh-autosuggestions':
-    }
+    -> exec { 'apt-key add - < /tmp/OhMyZshReleaseKey.key': }
+    -> package { 'zsh-autosuggestions': ensure => latest, }
   }
 }

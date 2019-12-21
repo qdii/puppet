@@ -10,7 +10,7 @@ class qdii {
   #  include qdii::virtualbox
   #  include qdii::wireshark
   #  include qdii::xorg
-  include qdii::zsh
+  include qdii::shell
 
   User <| title == me |>
 }
