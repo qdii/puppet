@@ -21,7 +21,6 @@ class qdii::base {
 
     if $::operatingsystem == 'Archlinux' {
       package { [
-          'aurutils',
           'pygmentize',
       ]:
         ensure =>  installed
