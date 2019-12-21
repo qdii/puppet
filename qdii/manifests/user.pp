@@ -9,18 +9,23 @@ class qdii::user {
     ensure => 'present'
   }
   @user { 'me':
-    ensure => 'present',
-    name => 'qdii',
-    groups => [
+    ensure     => 'present',
+    name       => 'qdii',
+    groups     => [
       'qdii',
       'wheel',
       'lp',
     ],
+    shell      => '/bin/zsh',
     membership => minimum,
-    require => [
+    require    => [
       Group['qdii'],
       Group['wheel'],
       Group['lp'],
+      Package['zsh'],
     ],
+  }
+  user { 'root':
+    shell => '/bin/zsh',
   }
 }
