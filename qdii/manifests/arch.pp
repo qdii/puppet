@@ -22,9 +22,10 @@ class qdii::arch {
       owner  => 'qdii',
     }
     package { 'repoctl':
-      ensure          => installed,
-      source          => 'https://github.com/cassava/repoctl/releases/download/v0.18/repoctl-0.18.tar.gz',
-      provider        => 'pacman',
+      ensure   => installed,
+      source   => 'https://github.com/cassava/repoctl/releases/download/v0.18/repoctl-0.18.tar.gz',
+      provider => 'pacman',
+      require  => File['pacman.conf'],
     }
     exec { 'create-custom-repo':
       command => '/usr/bin/repo-add /var/cache/pacman/custom/custom.db.tar',
