@@ -6,8 +6,12 @@ class qdii::picom {
   package { $pkg:
     ensure => 'latest',
   }
-  User <| title == me |> ->
-  file { "/home/qdii/.config/$pkg":
+  User <| title == me |>
+  -> file { "/home/qdii/.config":
+    ensure => 'directory',
+    mode   => '0600',
+  }
+  -> file { "/home/qdii/.config/$pkg":
     ensure => 'directory',
     mode   => '0600',
     alias  => 'picom_config_directory',
