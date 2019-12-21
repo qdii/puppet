@@ -10,7 +10,7 @@ class qdii::arch {
     }
     file { 'pacman.conf':
       ensure  => file,
-      path    => '/etc/pacman.d/pacman.conf',
+      path    => '/etc/pacman.conf',
       source  => 'puppet:///modules/qdii/dotfiles/pacman.conf',
       owner   => 'root',
       group   => 'root',
