@@ -21,9 +21,9 @@ class qdii::arch {
       path   => '/var/cache/pacman/custom',
       owner  => 'qdii',
     }
-    -> package { 'aurutils':
-      source  => 'https://aur.archlinux.org/cgit/aur.git/snapshot/aurutils.tar.gz',
-      require => File['pacman.conf']
+    package { 'aurutils':
+      ensure => installed,
+      source => 'puppet:///modules/qdii/pkg/aurutils-2.3.3-1-any.pkg.tar.xz'
     }
     package { 'go':
       ensure =>  latest,
