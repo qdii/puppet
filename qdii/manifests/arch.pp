@@ -11,7 +11,7 @@ class qdii::arch {
     file { 'pacman.conf':
       ensure  => file,
       path    => '/etc/pacman.conf',
-      source  => "puppet:///modules/qdii/dotfiles/pacman.conf.$::os::architecture",
+      source  => "puppet:///modules/qdii/dotfiles/pacman.conf.${::os['architecture']}",
       owner   => 'root',
       group   => 'root',
       mode    => '0644',
