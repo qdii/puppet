@@ -8,6 +8,7 @@ class qdii::base {
         'irssi',
         'ipcalc',
         'lsof',
+        'mosh',
         'nmap',
         'net-tools',
         'openvpn',

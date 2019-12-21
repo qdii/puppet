@@ -17,6 +17,7 @@ class qdii::user {
       'lp',
     ],
     shell      => '/bin/zsh',
+    managehome => true,
     membership => minimum,
     require    => [
       Group['qdii'],
