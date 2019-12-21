@@ -32,7 +32,7 @@ plugins=(
 if [[ -f '/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh' ]]; then
   source '/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh'
 else
-  plugins+=zsh-autosugggestions
+  plugins+=zsh-autosuggestions
 fi
 
 source $ZSH/oh-my-zsh.sh
