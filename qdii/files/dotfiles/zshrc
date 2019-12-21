@@ -27,8 +27,13 @@ plugins=(
     screen
     sudo
     tmux
-    zsh-autosuggestions
 )
+
+if [[ -f '/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh' ]]; then
+  source '/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh'
+else
+  plugins+=zsh-autosugggestions
+fi
 
 source $ZSH/oh-my-zsh.sh
 
