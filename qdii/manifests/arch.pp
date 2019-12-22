@@ -25,7 +25,7 @@ class qdii::arch {
       source => 'puppet:///modules/qdii/pkg/aurutils-2.3.3-1-any.pkg.tar.xz'
     }
     -> exec { 'install-aurutils':
-      command => 'pacman -U /tmp/aurutils-2.3.3.tar.gz',
+      command => 'pacman -U /tmp/aurutils-2.3.3-1-any.pkg.tar.xz',
       unless  => 'pacman -Qi aurutils',
       path    => '/usr/bin',
     }
