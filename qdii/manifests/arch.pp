@@ -33,10 +33,11 @@ class qdii::arch {
       ensure => latest,
     }
     exec { 'create-custom-repo':
-      command => '/usr/bin/repo-add /var/cache/pacman/custom/custom.db.tar',
-      require =>  [
+      command => 'repo-add /var/cache/pacman/custom/custom.db.tar',
+      require => [
         File['pacman.conf', 'custom', 'custom_directory'],
-      ]
+      ],
+      path    => '/usr/bin'
     }
   }
 }
