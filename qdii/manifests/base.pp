@@ -71,7 +71,7 @@ class qdii::base {
     package { 'sudo':
       ensure =>  latest,
     }
-    file { '/etc/sudoers':
+    file { '/etc/sudoers.d/qdii':
       ensure =>  file,
       source => 'puppet:///modules/qdii/dotfiles/sudoers',
     }
