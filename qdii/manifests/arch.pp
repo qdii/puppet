@@ -29,8 +29,8 @@ class qdii::arch {
       unless  => 'pacman -Qi aurutils',
       path    => '/usr/bin',
     }
-    package { 'go':
-      ensure =>  latest,
+    -> package { 'pkgfile':
+      ensure => latest,
     }
     exec { 'create-custom-repo':
       command => '/usr/bin/repo-add /var/cache/pacman/custom/custom.db.tar',

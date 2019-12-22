@@ -90,3 +90,4 @@ Include = /etc/pacman.d/mirrorlist
 #[multilib-testing]
 #Include = /etc/pacman.d/mirrorlist
 
+Include = /etc/pacman.d/custom
