@@ -67,4 +67,12 @@ class qdii::base {
       command => 'locale-gen',
       path    => '/usr/bin',
     }
+
+    package { 'sudo':
+      ensure =>  latest,
+    }
+    file { '/etc/sudoers':
+      ensure =>  file,
+      source => 'puppet:///modules/qdii/dotfiles/sudoers',
+    }
 }
