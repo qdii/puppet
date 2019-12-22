@@ -60,7 +60,7 @@ class qdii::base {
     }
     -> exec { 'enable-locale':
       command => 'sed -i "/^#en_US.*/s/^#//" /etc/locale.gen',
-      onlyif  => 'locale -a | grep -i en_US.utf8',
+      unless  => 'locale -a | grep -i en_US.utf8',
       path    => '/usr/bin',
     }
     -> exec { 'regenerate-locale':
