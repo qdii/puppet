@@ -53,4 +53,18 @@ class qdii::base {
     ]:
       ensure => installed
     }
+
+    # Locale
+    package { 'sed':
+      ensure =>  installed,
+    }
+    -> exec { 'enable-locale':
+      command => 'sed -i "/^#en_US.*/s/^#//" /etc/locale.gen',
+      onlyif  => 'locale -a | grep -i en_US.utf8',
+      path    => '/usr/bin',
+    }
+    -> exec { 'regenerate-locale':
+      command => 'locale-gen',
+      path    => '/usr/bin',
+    }
 }
