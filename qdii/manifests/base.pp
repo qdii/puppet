@@ -6,6 +6,7 @@ class qdii::base {
         'feh',
         'fwupd',
         'git',
+        "grep",
         'irssi',
         'ipcalc',
         'lsof',
