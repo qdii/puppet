@@ -40,6 +40,7 @@ class qdii::arch {
       ],
       path    => '/usr/bin',
       user    => 'qdii',
+      creates => '/var/cache/pacman/custom/custom.db',
     }
   }
 }
