@@ -27,6 +27,9 @@ class qdii::shell {
     -> exec { 'apt-key add - < /tmp/OhMyZshReleaseKey.key': }
     -> package { 'zsh-autosuggestions': ensure => latest, }
   }
+  else {
+    package { 'zsh-autosuggestions': ensure => latest, }
+  }
 
   # Oh my zsh
   exec { 'ohmyzsh_qdii':
