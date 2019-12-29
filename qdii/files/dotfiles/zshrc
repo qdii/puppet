@@ -37,7 +37,15 @@ else
   plugins+=zsh-autosuggestions
 fi
 
-source '/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh'
+# Arch linux installs here
+if [[ -f '/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' ]]; then
+    source '/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh'
+fi
+
+# Ubuntu installs here
+if [[ -f '/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' ]]; then
+    source '/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh'
+fi
 
 source $ZSH/oh-my-zsh.sh
 
