@@ -38,22 +38,22 @@ class qdii::base {
     }
 
     # Desktop
-    package { [
-        'acpi',
-        'audacity',
-        'fcitx',
-        'firefox',
-        'gimp',
-        'nextcloud-client',
-        'pulseaudio',
-        'pulseaudio-bluetooth',
-        'rofi',
-        'rxvt-unicode',
-        'vlc',
-        'xorg-xev',
-    ]:
-      ensure => installed
-    }
+    #    package { [
+    #        'acpi',
+    #        'audacity',
+    #        'fcitx',
+    #        'firefox',
+    #        'gimp',
+    #        'nextcloud-client',
+    #        'pulseaudio',
+    #        'pulseaudio-bluetooth',
+    #        'rofi',
+    #        'rxvt-unicode',
+    #        'vlc',
+    #        'xorg-xev',
+    #    ]:
+    #      ensure => installed
+    #    }
 
     # Locale
     package { 'sed':
