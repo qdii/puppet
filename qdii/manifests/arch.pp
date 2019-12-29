@@ -38,7 +38,8 @@ class qdii::arch {
       require => [
         File['pacman.conf', 'custom', 'custom_directory'],
       ],
-      path    => '/usr/bin'
+      path    => '/usr/bin',
+      user    => 'qdii',
     }
   }
 }
