@@ -65,8 +65,10 @@ class qdii::base {
       path     => '/usr/bin',
     }
     -> exec { 'regenerate-locale':
-      command => 'locale-gen',
-      path    => '/usr/bin',
+      command  => 'locale-gen',
+      path     => '/usr/bin',
+      unless   => 'locale -a | grep -i en_US.utf8',
+      provider => shell,  # for grep
     }
 
     package { 'sudo':
