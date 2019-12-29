@@ -9,6 +9,15 @@ class qdii::shell {
     path   => '/home/qdii/.zshrc',
   }
 
+  file { 'root_zshrc':
+    ensure => 'file',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0600',
+    source => 'puppet:///modules/qdii/dotfiles/root_zshrc',
+    path   => '/root/.zshrc',
+  }
+
   # zsh-autosuggestion
   if ::operatingsystem == 'Ubuntu' {
     include ::wget
