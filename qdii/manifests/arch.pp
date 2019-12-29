@@ -20,6 +20,7 @@ class qdii::arch {
       ensure => 'directory',
       path   => '/var/cache/pacman/custom',
       owner  => 'qdii',
+      group  => 'qdii',
     }
     file { '/tmp/aurutils-2.3.3-1-any.pkg.tar.xz':
       source => 'puppet:///modules/qdii/pkg/aurutils-2.3.3-1-any.pkg.tar.xz'

@@ -6,7 +6,6 @@ class qdii::base {
         'feh',
         'fwupd',
         'git',
-        "grep",
         'irssi',
         'ipcalc',
         'lsof',
@@ -60,9 +59,10 @@ class qdii::base {
       ensure =>  installed,
     }
     -> exec { 'enable-locale':
-      command => 'sed -i "/^#en_US.*/s/^#//" /etc/locale.gen',
-      unless  => 'locale -a | grep -i en_US.utf8',
-      path    => '/usr/bin',
+      command  => 'sed -i "/^#en_US.*/s/^#//" /etc/locale.gen',
+      provider => shell,  # for grep
+      unless   => 'locale -a | grep -i en_US.utf8',
+      path     => '/usr/bin',
     }
     -> exec { 'regenerate-locale':
       command => 'locale-gen',
