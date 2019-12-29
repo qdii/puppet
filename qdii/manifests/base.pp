@@ -15,6 +15,7 @@ class qdii::base {
         'openvpn',
         'tcpdump',
         'traceroute',
+        'zsh-syntax-highlighting',
     ]:
       ensure => installed
     }
