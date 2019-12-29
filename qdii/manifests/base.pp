@@ -13,7 +13,6 @@ class qdii::base {
         'nmap',
         'net-tools',
         'openvpn',
-        'tmux',
         'tcpdump',
         'traceroute',
     ]:
