@@ -61,14 +61,14 @@ class qdii::base {
     -> exec { 'enable-locale':
       command  => 'sed -i "/^#en_US.*/s/^#//" /etc/locale.gen',
       provider => shell,  # for grep
-      unless   => 'locale -a | grep -i en_US.utf8',
-      path     => '/usr/bin',
+      unless   => 'locale -a | grep -q en_US.utf8',
+      path     => '/usr/bin:/bin',
     }
     -> exec { 'regenerate-locale':
       command  => 'locale-gen',
-      path     => '/usr/bin',
-      unless   => 'locale -a | grep -i en_US.utf8',
       provider => shell,  # for grep
+      unless   => 'locale -a | grep -q en_US.utf8',
+      path     => '/usr/bin:/bin',
     }
 
     package { 'sudo':
