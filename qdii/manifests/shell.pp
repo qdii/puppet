@@ -27,4 +27,22 @@ class qdii::shell {
     -> exec { 'apt-key add - < /tmp/OhMyZshReleaseKey.key': }
     -> package { 'zsh-autosuggestions': ensure => latest, }
   }
+
+  # Oh my zsh
+  exec { 'ohmyzsh_qdii':
+    command  => 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"',
+    provider => shell,
+    creates  => '/home/qdii/.oh-my-zsh/',
+    path     => '/usr/bin',
+    cwd      => '/home/qdii',
+    require => Package['curl'],
+  }
+  exec { 'ohmyzsh_root':
+    command  => 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"',
+    provider => shell,
+    creates  => '/root/.oh-my-zsh/',
+    path     => '/usr/bin',
+    cwd      => '/root',
+    require => Package['curl'],
+  }
 }
