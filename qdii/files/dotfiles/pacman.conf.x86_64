@@ -94,6 +94,3 @@ Include = /etc/pacman.d/mirrorlist
 Include = /etc/pacman.d/mirrorlist
 
 Include = /etc/pacman.d/custom
-
-[sublime-text]
-Server = https://download.sublimetext.com/arch/stable/x86_64
