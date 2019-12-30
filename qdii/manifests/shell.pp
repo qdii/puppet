@@ -1,11 +1,21 @@
 class qdii::shell {
+  if $::fqdn =~ '/.*\.roam\.corp\.google\.com' {
+    $homedir = '/home/qdii'
+  }
+  elsif $::fqdn =~ '/.*\.corp\.google\.com' {
+    $homedir = '/usr/local/google/home/qdii'
+  }
+  else {
+    $homedir = '/home/qdii'
+  }
+
   package { 'zsh': ensure => latest }
   file { 'zshrc':
     ensure => 'file',
     owner  => 'qdii',
     mode   => '0600',
     source => 'puppet:///modules/qdii/dotfiles/zshrc',
-    path   => '/home/qdii/.zshrc',
+    path   => "${homedir}/.zshrc',
   }
 
   file { 'root_zshrc':
@@ -33,9 +43,9 @@ class qdii::shell {
   exec { 'ohmyzsh_qdii':
     command  => 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"',
     provider => shell,
-    creates  => '/home/qdii/.oh-my-zsh/',
+    creates  => "${homedir}/.oh-my-zsh/",
     path     => '/usr/bin',
-    cwd      => '/home/qdii',
+    cwd      => $homedir,
     require => Package['curl'],
   }
   exec { 'ohmyzsh_root':
