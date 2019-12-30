@@ -22,7 +22,7 @@ class qdii::shell {
     ensure => 'file',
     owner  => 'root',
     mode   => '0600',
-    source => 'puppet:///modules/qdii/dotfiles/root_zshrc',
+    source => 'puppet:///modules/qdii/dotfiles/zshrc',
     path   => '/root/.zshrc',
   }
 
