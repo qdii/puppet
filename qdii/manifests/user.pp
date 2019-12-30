@@ -16,7 +16,6 @@ class qdii::user {
       'wheel',
       'lp',
     ],
-    shell      => '/bin/zsh',
     managehome => true,
     membership => minimum,
     require    => [
