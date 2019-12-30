@@ -15,7 +15,7 @@ class qdii::shell {
     owner  => 'qdii',
     mode   => '0600',
     source => 'puppet:///modules/qdii/dotfiles/zshrc',
-    path   => "${homedir}/.zshrc',
+    path   => "${homedir}/.zshrc",
   }
 
   file { 'root_zshrc':
