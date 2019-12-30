@@ -1,96 +1,30 @@
 let mapleader = 'à'
 
-set guifont=Ubuntu\ Mono\ Plus\ Nerd\ File\ Types\ Mono\ 11
-set syntax=on
-set tabstop=4
-set expandtab
-set shiftwidth=4
 " colore la recherche
 set hlsearch
+
 "va directement à la recherche au fur et à mesure de la frappe
 set incsearch
+
 " change automatiquement le répertoire de travail
 set autochdir
 " gère intelligement la casse dans les recherces
 set ignorecase
 set smartcase
+
+" line number
 set nu!
-syntax on
-
-let g:ycm_global_ycm_extra_conf = '/home/qdii/.vim/.ycm_extra_conf.py'
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_confirm_extra_conf = 0
-nmap <F8> :TagbarToggle<CR>
-
-nnoremap <c-x> g<c-]>
-vnoremap <c-x> g<c-]>
-set tags=./tags;/
-
-" cscope
-if has("cscope")
-    set csprg=/usr/bin/cscope
-    set csto=0
-    set cst
-    set nocsverb
-    " add any database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out
-        " else add database pointed to by environment
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
-endif
-
-" syntastic
-let g:syntastic_js_checkers = ['jslint']
-let g:syntastic_cpp_checkers = ['gcc']
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_no_include_search = 1
-let g:syntastic_cpp_no_default_include_dirs = 1
-let g:syntastic_cpp_auto_refresh_includes = 1
-let g:syntastic_cpp_compiler_options = '-std=c++11'
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
-let g:Powerline_symbols = "fancy"
-let g:xml_syntax_folding=1
-au FileType xml setlocal foldmethod=syntax
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-set laststatus=2
-set encoding=utf-8
-let g:vim_json_warnings = 0
-let g:sneak#streak = 1
-let g:tmuxline_preset = {
-      \'a'    : '#( whoami )',
-      \'b'    : '#h',
-      \'z'    : ['%R', '%a', '%Y']}
-
-let g:clever_f_not_overwrites_standard_mappings = 1
-nmap e <Plug>(clever-f-f)
-xmap e <Plug>(clever-f-f)
-omap e <Plug>(clever-f-f)
-nmap E <Plug>(clever-f-F)
-xmap E <Plug>(clever-f-F)
-omap E <Plug>(clever-f-F)
-nmap è <Plug>(clever-e-t)
-xmap è <Plug>(clever-e-t)
-omap è <Plug>(clever-e-t)
-nmap È <Plug>(clever-e-T)
-xmap È <Plug>(clever-e-T)
-omap È <Plug>(clever-e-T)
 
 set nocompatible
+" vundle-specific
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'ryanoasis/vim-webdevicons'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -101,8 +35,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'junegunn/vim-easy-align'
 Plugin 'pangloss/vim-javascript'
-Plugin 'steffanc/cscopemaps.vim'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-scripts/EasyMotion'
 Plugin 'elzr/vim-json'
@@ -110,15 +43,12 @@ Plugin 'Yggdroot/indentline'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'gregsexton/gitv'
 Plugin 'rhysd/clever-f.vim'
-Plugin 'hdima/python-syntax'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'mv/mv-vim-puppet'
 Plugin 'fatih/vim-go'
 Plugin 'vim-scripts/AnsiEsc.vim'
 Plugin 'michamos/vim-bepo'
-
 call vundle#end()
-filetype plugin indent on
 
 " Surround remaps things to "c" we don't want
 let g:surround_no_mappings = 1
@@ -127,22 +57,38 @@ nmap ls <Plug>Csurround
 nmap ys <Plug>Ysurround
 nmap yS <Plug>YSurround
 
-map <F7> :NERDTreeToggle<CR>
-nnoremap <C-e> :YcmCompleter GoTo<CR>
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
+let g:ctrlp_working_path_mode = 'ra'
+let g:clever_f_chars_match_any_signs = ';'
+let g:ycm_confirm_extra_conf = 0
+
+" Google-specific
+source /usr/share/vim/google/google.vim
+filetype plugin indent on
+syntax on
+
+Glug syntastic-google checkers=`{'proto': ['glint'], 'python': ['gpylint'], 'go': ['gofmt', 'golint', 'gotype', 'vet'], 'java': ['glint']}`
+Glug youcompleteme-google
+Glug codefmt gofmt_executable="goimports"
+Glug codefmt-google
+Glug blaze plugin[mappings]='<leader>b'
+Glug outline-window
+Glug blazedeps auto_filetypes=`['go']`
+
+" autocmd FileType python AutoFormatBuffer pyformat
+autocmd FileType python AutoFormatBuffer gofmt
+autocmd FileType bzl AutoFormatBuffer buildifier
+
+" powerline symbols
+let g:ctrlp_working_path_mode = 'ra'
 
 " powerline symbols !
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-" powerline symbols
-let g:ctrlp_working_path_mode = 'ra'
-
-" NERDTress File highlighting
+" NerdTree colors
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+   exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+   exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
 call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
@@ -157,15 +103,22 @@ call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+map <F7> :NERDTreeToggle<CR>
+
+" tabgbar
+nmap <F8> :TagbarToggle<CR>
 
 " 80-character delimiter
 let &colorcolumn=join(range(81,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
 let &colorcolumn="80,".join(range(120,999),",")
 
+" syntastic
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+
 " clever f
 let g:clever_f_not_overwrites_standard_mappings = 1
-let g:clever_f_chars_match_any_signs = ';'
 nmap e <Plug>(clever-f-f)
 xmap e <Plug>(clever-f-f)
 omap e <Plug>(clever-f-f)
@@ -178,6 +131,9 @@ omap è <Plug>(clever-e-t)
 nmap È <Plug>(clever-e-T)
 xmap È <Plug>(clever-e-T)
 omap È <Plug>(clever-e-T)
+
+" encoding is utf-8 (needs to be for vim-devicons to work)
+set encoding=utf8
 
 " autoclose the preview window when the user accepts the offered completion
 let g:ycm_autoclose_preview_window_after_completion=1
