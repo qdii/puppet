@@ -180,6 +180,7 @@ bindcode 233 "exec --no-startup-id xbacklight +5"
 
 # Screenshots
 bindcode --release $mod+95 exec --no-startup-id scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
+bindcode --release $mod+107 exec --no-startup-id scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # Screencast
 bindcode --release $mod+Shift+95 exec --no-startup-id i3cast
@@ -257,3 +258,6 @@ bindcode $mod+96 scratchpad show
 
 # Redshift
 exec --no-startup-id "redshift"
+
+# Clipmenu
+bindcode $mod+30 "exec --no-startup-id CM_LAUNCHER=rofi clipmenu -i -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#93a1a1'"
