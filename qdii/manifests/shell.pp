@@ -1,8 +1,8 @@
 class qdii::shell {
-  if $::fqdn =~ '/.*\.roam\.corp\.google\.com/' {
+  if $::fqdn =~ /.*\.roam\.corp\.google\.com/ {
     $homedir = '/home/qdii'
   }
-  elsif $::fqdn =~ '/.*\.corp\.google\.com/' {
+  elsif $::fqdn =~ /^.*\.corp\.google\.com$/ {
     $homedir = '/usr/local/google/home/qdii'
   }
   else {
