@@ -1,11 +1,21 @@
 class qdii::tmux {
+  if $::fqdn =~ /.*\.roam\.corp\.google\.com/ {
+    $homedir = '/home/qdii'
+  }
+  elsif $::fqdn =~ /^.*\.corp\.google\.com$/ {
+    $homedir = '/usr/local/google/home/qdii'
+  }
+  else {
+    $homedir = '/home/qdii'
+  }
+
   package { 'tmux':
     ensure => latest,
   }
   -> file { 'tmux_conf_qdii':
     ensure => file,
     source => 'puppet:///modules/qdii/dotfiles/tmux',
-    path   => '/home/qdii/.tmux.conf',
+    path   => "${homedir}/.tmux.conf",
     owner  => 'qdii',
     group  => 'qdii',
   }
