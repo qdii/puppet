@@ -2,10 +2,11 @@ export ZSH=/root/.oh-my-zsh
 
 ZSH_THEME="blinks"
 
+# see https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=245"
+
 # Tells pygments to use solarized-dark theme, so that ccat works correctly
 ZSH_COLORIZE_STYLE="solarized-dark"
-
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg-7"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
