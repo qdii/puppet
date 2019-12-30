@@ -28,9 +28,8 @@ class qdii::shell {
 
   # zsh-autosuggestion
   if ::operatingsystem == 'Ubuntu' {
-    include ::wget
     wget::fetch { 'ohmyzsh_key':
-      source => "https://download.opensuse.org/repositories/shells:zsh-users:zsh-autosuggestions/xUbuntu_${lsbdistrelease}/Release.key",
+      source => "https://download.opensuse.org/repositories/shells:zsh-users:zsh-autosuggestions/xUbuntu_${::lsbdistrelease}/Release.key",
       destination => '/tmp/OhMyZshReleaseKey.key',
     }
     -> exec { 'apt-key add - < /tmp/OhMyZshReleaseKey.key': }
