@@ -9,16 +9,14 @@ class qdii::vim {
     ensure => 'latest',
     name => 'vim',
   }
-  User <| title == me |> ->
-
-  if $::fqdn =~ '/.*\.roam\.corp\.google\.com' {
+  if $::fqdn =~ /.*\.roam\.corp\.google\.com$/ {
     file { 'vimrc':
       ensure =>  file,
       path   => '/home/qdii/.vimrc',
       source => 'puppet:///modules/qdii/dotfiles/vimrc_google',
     }
   }
-  elsif $::fqdn =~ '/.*\.corp\.google\.com' {
+  elsif $::fqdn =~ /.*\.corp\.google\.com$/ {
     file { 'vimrc':
       ensure =>  file,
       path   => '/usr/local/google/home/qdii/.vimrc',
