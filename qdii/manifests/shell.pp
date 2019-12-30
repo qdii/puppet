@@ -1,12 +1,15 @@
 class qdii::shell {
   if $::fqdn =~ /.*\.roam\.corp\.google\.com/ {
     $homedir = '/home/qdii'
+    $brw_path = 'puppet:///modules/qdii/dotfiles/zshrc.browser.work'
   }
   elsif $::fqdn =~ /^.*\.corp\.google\.com$/ {
     $homedir = '/usr/local/google/home/qdii'
+    $brw_path = 'puppet:///modules/qdii/dotfiles/zshrc.browser.work'
   }
   else {
     $homedir = '/home/qdii'
+    $brw_path = 'puppet:///modules/qdii/dotfiles/zshrc.browser.perso'
   }
 
   package { 'zsh': ensure => latest }
@@ -16,6 +19,13 @@ class qdii::shell {
     mode   => '0600',
     source => 'puppet:///modules/qdii/dotfiles/zshrc',
     path   => "${homedir}/.zshrc",
+  }
+  file { 'zshrc_browser':
+    ensure => 'file',
+    owner  => 'qdii',
+    mode   => '0600',
+    source => "$brw_path",
+    path   => "${homedir}/.zshrc.browser",
   }
 
   file { 'root_zshrc':
