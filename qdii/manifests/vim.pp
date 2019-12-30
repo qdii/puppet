@@ -13,7 +13,7 @@ class qdii::vim {
     file { 'vimrc':
       ensure =>  file,
       path   => '/home/qdii/.vimrc',
-      source => 'puppet:///modules/qdii/dotfiles/vimrc_google',
+      source => 'puppet:///modules/qdii/dotfiles/vimrc',
     }
   }
   elsif $::fqdn =~ /.*\.corp\.google\.com$/ {
