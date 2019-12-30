@@ -2,6 +2,7 @@ class qdii::picom {
   $pkg = $::operatingsystem ? {
     'Archlinux' => 'picom',
     'Ubuntu'    => 'compton',
+    'Debian'    => 'compton',
   }
   package { $pkg:
     ensure => 'latest',
