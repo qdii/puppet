@@ -10,8 +10,26 @@ class qdii::vim {
     name => 'vim',
   }
   User <| title == me |> ->
-  file { 'vimrc':
-    path => '/home/qdii/.vimrc',
-    source => 'puppet:///modules/qdii/dotfiles/vimrc',
+
+  if $::fqdn =~ '/.*\.roam\.corp\.google\.com' {
+    file { 'vimrc':
+      ensure =>  file,
+      path   => '/home/qdii/.vimrc',
+      source => 'puppet:///modules/qdii/dotfiles/vimrc_google',
+    }
+  }
+  elsif $::fqdn =~ '/.*\.corp\.google\.com' {
+    file { 'vimrc':
+      ensure =>  file,
+      path   => '/usr/local/google/home/qdii/.vimrc',
+      source => 'puppet:///modules/qdii/dotfiles/vimrc_google',
+    }
+  }
+  else {
+    file { 'vimrc':
+      ensure => file,
+      path   => '/home/qdii/.vimrc',
+      source => 'puppet:///modules/qdii/dotfiles/vimrc',
+    }
   }
 }
