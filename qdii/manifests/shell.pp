@@ -35,6 +35,13 @@ class qdii::shell {
     source => 'puppet:///modules/qdii/dotfiles/zshrc',
     path   => '/root/.zshrc',
   }
+  file { 'root_zshrc_browser':
+    ensure => 'file',
+    owner  => 'root',
+    mode   => '0600',
+    source => "$brw_path",
+    path   => "/root/.zshrc.browser",
+  }
 
   # zsh-autosuggestion
   if $::operatingsystem == 'Ubuntu' {
