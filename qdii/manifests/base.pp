@@ -21,20 +21,13 @@ class qdii::base {
       ensure => installed
     }
 
-    if $::operatingsystem == 'Archlinux' {
-      package { [
-          'pygmentize',
-      ]:
-        ensure =>  installed
-      }
+    $pygmentize = $::operatingsystem ? {
+        'Archlinux' => 'pygmentize',
+        'Ubuntu'    => 'python-pygments',
+        'Debian'    => 'python-pygments',
     }
-
-    if $::operatingsystem == 'Ubuntu' {
-      package { [
-          'python-pygments',
-      ]:
-        ensure =>  installed
-      }
+    package { $pygmentize:
+        ensure => 'latest',
     }
 
     # Desktop
