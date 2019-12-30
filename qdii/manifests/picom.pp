@@ -12,10 +12,10 @@ class qdii::picom {
     ensure => 'directory',
     mode   => '0600',
   }
-  -> file { "/home/qdii/.config/$pkg":
+  -> file { 'picom_config_directory':
     ensure => 'directory',
+    path   => "/home/qdii/.config/$pkg"
     mode   => '0600',
-    alias  => 'picom_config_directory',
   }
   file { 'picom.conf':
     ensure  => file,
