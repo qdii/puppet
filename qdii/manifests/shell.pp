@@ -45,7 +45,7 @@ class qdii::shell {
 
   # zsh-autosuggestion
   if $::operatingsystem == 'Ubuntu' {
-    package { 'mktemp':
+    package { 'coreutils':
       ensure => 'latest',
     }
     wget::fetch { 'ohmyzsh_key':
@@ -54,9 +54,9 @@ class qdii::shell {
     }
     -> exec { 'register-ohmyzsh-key':
       command  => 'apt-key add - < /tmp/OhMyZshReleaseKey.key',
-      path     => '/usr/bin',
+      path     => '/usr/bin:/bin',
       provider => 'shell',
-      require  => Package['mktemp'],
+      require  => Package['coreutils'],  # for mktemp
     }
     -> package { 'zsh-autosuggestions': ensure => latest, }
   }
