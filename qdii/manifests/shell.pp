@@ -49,7 +49,11 @@ class qdii::shell {
       source => "https://download.opensuse.org/repositories/shells:zsh-users:zsh-autosuggestions/xUbuntu_${::lsbdistrelease}/Release.key",
       destination => '/tmp/OhMyZshReleaseKey.key',
     }
-    -> exec { 'apt-key add - < /tmp/OhMyZshReleaseKey.key': }
+    -> exec { 'register-ohmyzsh-key':
+      command  => 'apt-key add - < /tmp/OhMyZshReleaseKey.key',
+      path     => '/usr/bin',
+      provider => 'shell',
+    }
     -> package { 'zsh-autosuggestions': ensure => latest, }
   }
   else {
