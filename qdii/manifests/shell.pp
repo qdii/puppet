@@ -45,6 +45,9 @@ class qdii::shell {
 
   # zsh-autosuggestion
   if $::operatingsystem == 'Ubuntu' {
+    package { 'mktemp':
+      ensure => 'latest',
+    }
     wget::fetch { 'ohmyzsh_key':
       source => "https://download.opensuse.org/repositories/shells:zsh-users:zsh-autosuggestions/xUbuntu_${::lsbdistrelease}/Release.key",
       destination => '/tmp/OhMyZshReleaseKey.key',
@@ -53,6 +56,7 @@ class qdii::shell {
       command  => 'apt-key add - < /tmp/OhMyZshReleaseKey.key',
       path     => '/usr/bin',
       provider => 'shell',
+      require  => Package['mktemp'],
     }
     -> package { 'zsh-autosuggestions': ensure => latest, }
   }
