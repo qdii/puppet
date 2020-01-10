@@ -94,3 +94,6 @@ Include = /etc/pacman.d/mirrorlist
 Include = /etc/pacman.d/mirrorlist
 
 Include = /etc/pacman.d/custom
+
+[blackarch]
+Include = /etc/pacman.d/blackarch-mirrorlist
