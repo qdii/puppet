@@ -39,22 +39,20 @@
 PLAYER=mpv
 
 # Folder to store saved and uploaded videos localy.
-FOLDER=$HOME/Videos/c/
+FOLDER=$HOME/cld/vid/cast
 
 # Customize the DMENU to your liking
-DMENU_OPTIONS=
-# DMENU_OPTIONS="-h 16"
+DMENU_OPTIONS="rofi -dmenu"
 
 # to add gfycat as an host, enter path to gif-is-jif
 GIF_IS_JIF=
 # GIF_IS_JIF="$HOME/bin/gif-is-jif.bash"
 
-
 # DON'T CHANGE THIS VAR
 HOSTS="ptpb.pw"
 
 # Filename and location of recording before saving
-TMP_FILE=/tmp/tmpcast.mkv
+TMP_FILE=$(mktemp --suffix=.mkv)
 
 RESOLUTION=$(xrandr | grep \* | awk '{print $1}')
 

@@ -31,7 +31,7 @@
 
 # i3get is required for this script to work.
 # https://www.reddit.com/r/i3wm/comments/6wyarw/oc_i3get/
-I3GETPATH=$HOME/bin/i3get
+I3GETPATH=/usr/local/bin/i3get
 
 # the options and its arguments is identical to what we are passing
 # to i3get later. So we store them in a array: acri for convenience.
