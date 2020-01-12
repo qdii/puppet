@@ -45,18 +45,35 @@ class qdii::i3 {
     group => 'qdii',
     mode => '0777',
   }
-  file { 'i3cast':
+  file { 'anycast':
     ensure => file,
-    path => '/usr/local/bin/i3cast',
-    source => 'puppet:///modules/qdii/misc/i3cast',
+    path => '/usr/local/bin/anycast',
+    source => 'puppet:///modules/qdii/misc/anycast',
     owner => 'qdii',
     group => 'qdii',
     mode => '0777',
+  }
+  file { 'i3cast':
+    ensure  => file,
+    path    => '/usr/local/bin/i3cast',
+    source  => 'puppet:///modules/qdii/misc/i3cast',
+    owner   => 'qdii',
+    group   => 'qdii',
+    mode    => '0777',
+    require => File['anycast'],
   }
   file { 'i3run':
     ensure => file,
     path => '/usr/local/bin/i3run',
     source => 'puppet:///modules/qdii/misc/i3run',
+    owner => 'qdii',
+    group => 'qdii',
+    mode => '0777',
+  }
+  file { 'anycast':
+    ensure => file,
+    path => '/usr/local/bin/anycast',
+    source => 'puppet:///modules/qdii/misc/anycast',
     owner => 'qdii',
     group => 'qdii',
     mode => '0777',

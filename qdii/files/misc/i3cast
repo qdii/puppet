@@ -41,18 +41,16 @@ PLAYER=mpv
 # Folder to store saved and uploaded videos localy.
 FOLDER=$HOME/cld/vid/cast
 
+# Which dmenu to use
+DMENU="rofi"
+
 # Customize the DMENU to your liking
-DMENU_OPTIONS="rofi -dmenu"
+DMENU_OPTIONS="-dmenu"
 
-# to add gfycat as an host, enter path to gif-is-jif
-GIF_IS_JIF=
-# GIF_IS_JIF="$HOME/bin/gif-is-jif.bash"
-
-# DON'T CHANGE THIS VAR
-HOSTS="ptpb.pw"
+ANYPASTE="/usr/local/bin/anypaste"
 
 # Filename and location of recording before saving
-TMP_FILE=$(mktemp --suffix=.mkv)
+TMP_FILE=/tmp/i3cast.mkv
 
 RESOLUTION=$(xrandr | grep \* | awk '{print $1}')
 
@@ -68,7 +66,7 @@ COMMAND="ffmpeg -thread_queue_size 128 -f x11grab -r 30 \
 play(){
   ${PLAYER} $TMP_FILE
   sel1="play\nupload\nsave"
-  choice=$(echo -e "${sel1}" | dmenu ${DMENU_OPTIONS} -p "action:")
+  choice=$(echo -e "${sel1}" | ${DMENU} ${DMENU_OPTIONS} -p "action:")
   if [[ -z $choice ]]; then
     rm $TMP_FILE
     exit
@@ -83,34 +81,18 @@ play(){
 
 upload(){
   save
-  choice=$(echo -e "${HOSTS}" | dmenu ${DMENU_OPTIONS} -p "select host:")
-  [[ -z $choice ]] && exit
-  case $choice in
-    'ptpb.pw' )
-      pst=$(curl --form "c=@${SAVED}" https://ptpb.pw/)
-      pst=$(printf "${pst}" | awk -F':' '$1=="url"{$1="";print $0}')
-    ;;
-
-    gfycat    )
-      pst=$(${GIF_IS_JIF} ${SAVED})
-      printf "${pst}" | awk '$NF ~ "http"{print $NF}'
-      pst=$(printf "${pst}" | awk '$NF ~ "http"{print $NF}')
-    ;;
-  esac
-
-  echo ${pst} | xclip -selection 'clipboard'
-  notify-send "Upload complete: $pst"
+  ${ANYPASTE} -x --notify -s -p gfy "${SAVED}"
 }
 
 save(){
-  choice=$(echo "" | dmenu ${DMENU_OPTIONS} -p "name:")
+  choice=$(echo "" | ${DMENU} ${DMENU_OPTIONS} -p "name:")
   if [[ -z $choice ]]; then
     rm $TMP_FILE
     exit
   fi
-  SAVED=$FOLDER$choice.mkv
-  mkdir -p $FOLDER
-  mv $TMP_FILE $SAVED
+  SAVED="${FOLDER}/${choice}.mkv"
+  mkdir -p "${FOLDER}"
+  mv "${TMP_FILE}" "${SAVED}"
 }
 
 cid=$(i3get -i castterm)
