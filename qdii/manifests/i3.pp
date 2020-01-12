@@ -61,12 +61,4 @@ class qdii::i3 {
     group => 'qdii',
     mode => '0777',
   }
-  file { 'i3exit':
-    ensure => file,
-    path => '/usr/local/bin/i3exit',
-    source => 'puppet:///modules/qdii/misc/i3exit',
-    owner => 'qdii',
-    group => 'qdii',
-    mode => '0777',
-  }
 }

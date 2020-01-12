@@ -159,21 +159,6 @@ bar {
 	}
 }
 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
-mode "$mode_system" {
-    bindsym r exec --no-startup-id /usr/local/bin/i3exit lock, mode "default"
-    bindsym p exec --no-startup-id /usr/local/bin/i3exit logout, mode "default"
-    bindsym u exec --no-startup-id /usr/local/bin/i3exit suspend, mode "default"
-    bindsym c exec --no-startup-id /usr/local/bin/i3exit hibernate, mode "default"
-    bindsym o exec --no-startup-id /usr/local/bin/i3exit reboot, mode "default"
-    bindsym Shift+u exec --no-startup-id /usr/local/bin/i3exit shutdown, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindcode $mod+119 mode "$mode_system"
-
 # backlight
 bindcode 232 "exec --no-startup-id xbacklight -5"
 bindcode 233 "exec --no-startup-id xbacklight +5"
@@ -255,6 +240,8 @@ exec --no-startup-id "firefox"
 # Scratchpad
 bindcode $mod+Shift+96 move scratchpad
 bindcode $mod+96 scratchpad show
+bindcode $mod+Shift+118 move scratchpad
+bindcode $mod+118 scratchpad show
 
 # Redshift
 exec --no-startup-id "redshift"
