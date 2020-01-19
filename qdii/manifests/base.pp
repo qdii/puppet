@@ -35,6 +35,8 @@ class qdii::base {
     #        'acpi',
     #        'audacity',
     #        'fcitx',
+    #        'fcitx-libpinyin',
+    #        'fcitx-im',
     #        'firefox',
     #        'gimp',
     #        'nextcloud-client',
