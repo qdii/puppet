@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ifile="/home/qdii/.background.png"
+ofile="/tmp/bg.png"
+
+pscircle --root-pid=1 --max-children=35 --tree-sector-angle=3.1415 --tree-rotate=true --tree-rotation-angle=1.5708 --tree-center=-1920:0 --cpulist-center=1000:0 --memlist-center=1500:0 --output="$ofile" --background-image="$ifile" --output-width=3840 --output-height=2160 --collapse-threads=1
+feh --bg-scale "$ofile"

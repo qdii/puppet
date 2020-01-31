@@ -78,4 +78,12 @@ class qdii::i3 {
     group => 'qdii',
     mode => '0777',
   }
+  file { 'pscircles_bg':
+    ensure => file,
+    path   => '/usr/local/bin/pscircles_bg',
+    source => 'puppet:///modules/qdii/misc/pscircles_bg',
+    owner  => 'qdii',
+    group  => 'qdii',
+    mode   => '0777',
+  }
 }
