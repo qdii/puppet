@@ -38,6 +38,7 @@ class qdii::base {
     #        'fcitx-libpinyin',
     #        'fcitx-im',
     #        'firefox',
+    #        'flameshot',
     #        'gimp',
     #        'nextcloud-client',
     #        'pulseaudio',

@@ -144,8 +144,8 @@ bindcode 232 "exec --no-startup-id xbacklight -5"
 bindcode 233 "exec --no-startup-id xbacklight +5"
 
 # Screenshots
-bindcode --release $mod+95 exec --no-startup-id scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
-bindcode --release $mod+107 exec --no-startup-id scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
+bindcode --release $mod+95 exec --no-startup-id flameshot gui
+bindcode --release $mod+107 exec --no-startup-id flameshot gui
 
 # Screencast
 bindcode --release $mod+Shift+95 exec --no-startup-id i3cast
