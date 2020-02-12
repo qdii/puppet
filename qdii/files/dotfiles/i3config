@@ -188,7 +188,7 @@ exec --no-startup-id "nm-applet"
 exec_always --no-startup-id "picom -b"
 
 # background picture
-exec_always --no-startup-id "watch -n 5 /usr/local/bin/pscircles_bg"
+exec_always --no-startup-id "watch -n 5 /home/qdii/cld/bin/generate_pscircle.sh"
 
 # keyboard layout
 exec_always --no-startup-id "fcitx"
