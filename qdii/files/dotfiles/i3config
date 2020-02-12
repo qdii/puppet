@@ -66,28 +66,28 @@ bindcode $mod+38 focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindcode $mod+10 workspace 1: 
-bindcode $mod+11 workspace 2: 
-bindcode $mod+12 workspace 3: 
+bindcode $mod+10 workspace 1
+bindcode $mod+11 workspace 2
+bindcode $mod+12 workspace 3
 bindcode $mod+13 workspace 4
 bindcode $mod+14 workspace 5
 bindcode $mod+15 workspace 6
 bindcode $mod+16 workspace 7
 bindcode $mod+17 workspace 8
-bindcode $mod+18 workspace 9: 
-bindcode $mod+19 workspace 10: 
+bindcode $mod+18 workspace 9
+bindcode $mod+19 workspace 10
 
 # move focused container to workspace
-bindcode $mod+Shift+10 move container to workspace 1: 
-bindcode $mod+Shift+11 move container to workspace 2: 
-bindcode $mod+Shift+12 move container to workspace 3: 
+bindcode $mod+Shift+10 move container to workspace 1
+bindcode $mod+Shift+11 move container to workspace 2
+bindcode $mod+Shift+12 move container to workspace 3
 bindcode $mod+Shift+13 move container to workspace 4
 bindcode $mod+Shift+14 move container to workspace 5
 bindcode $mod+Shift+15 move container to workspace 6
 bindcode $mod+Shift+16 move container to workspace 7
 bindcode $mod+Shift+17 move container to workspace 8
-bindcode $mod+Shift+18 move container to workspace 9: 
-bindcode $mod+Shift+19 move container to workspace 10: 
+bindcode $mod+Shift+18 move container to workspace 9
+bindcode $mod+Shift+19 move container to workspace 10
 
 # reload the configuration file
 bindcode $mod+Shift+54 reload
@@ -162,7 +162,7 @@ hide_edge_borders smart
 
 # No titlebar on firefox
 for_window [class="firefox"] border pixel 1
-assign [class="firefox"] 1: 
+assign [class="firefox"] 1
 
 for_window [class="URxvt"] border pixel 1
 
@@ -171,13 +171,13 @@ for_window [class="xpad"] floating enable
 exec --no-startup-id "xpad"
 
 # Spotify
-assign [class="Spotify"] 9: 
+assign [class="Spotify"] 9
 for_window [class="Spotify"] border pixel 1
 exec --no-startup-id "spotify"
 for_window [class="Spotify"] move to workspace 9: 
 
 # Telegram
-assign [class="TelegramDesktop"] workspace 10: 
+assign [class="TelegramDesktop"] workspace 10
 exec --no-startup-id "telegram-desktop"
 for_window [class="TelegramDesktop"] border pixel 1
 
@@ -188,7 +188,7 @@ exec --no-startup-id "nm-applet"
 exec_always --no-startup-id "picom -b"
 
 # background picture
-exec_always --no-startup-id "watch -n 5 /home/qdii/cld/bin/generate_pscircle.sh"
+exec --no-startup-id "watch -n 5 /home/qdii/cld/bin/generate_pscircle.sh"
 
 # keyboard layout
 exec_always --no-startup-id "fcitx"
@@ -228,3 +228,6 @@ exec --no-startup-id "redshift"
 
 # Clipmenu
 bindcode $mod+30 "exec --no-startup-id CM_LAUNCHER=rofi clipmenu -i -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#93a1a1'"
+
+# Flameshot
+exec --no-startup-id "flameshot"
