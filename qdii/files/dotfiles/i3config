@@ -174,7 +174,7 @@ exec --no-startup-id "xpad"
 assign [class="Spotify"] 9
 for_window [class="Spotify"] border pixel 1
 exec --no-startup-id "spotify"
-for_window [class="Spotify"] move to workspace 9: 
+for_window [class="Spotify"] move to workspace 9
 
 # Telegram
 assign [class="TelegramDesktop"] workspace 10
