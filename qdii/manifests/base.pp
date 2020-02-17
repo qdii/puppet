@@ -75,4 +75,11 @@ class qdii::base {
       ensure =>  file,
       source => 'puppet:///modules/qdii/dotfiles/sudoers',
     }
+
+    if $::fqdn !~ /.*\.google\.com$/ {
+      file { '/home/qdii/.ssh/authorized_keys':
+        ensure => file,
+        source => 'puppet:///modules/qdii/misc/authorized_keys',
+      }
+    }
 }
