@@ -16,6 +16,14 @@ class qdii::arch {
       group   => 'root',
       mode    => '0644',
     }
+    file { 'blackarch-mirrorlist':
+      ensure => file
+      path   => '/etc/pacman.d/blackarch-mirrorlist',
+      source => 'puppet:///modules/qdii/misc/blackarch-mirrorlist',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0644',
+    }
     file { 'custom_directory':
       ensure => 'directory',
       path   => '/var/cache/pacman/custom',
