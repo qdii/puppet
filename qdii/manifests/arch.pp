@@ -17,7 +17,7 @@ class qdii::arch {
       mode    => '0644',
     }
     file { 'blackarch-mirrorlist':
-      ensure => file
+      ensure => file,
       path   => '/etc/pacman.d/blackarch-mirrorlist',
       source => 'puppet:///modules/qdii/misc/blackarch-mirrorlist',
       owner  => 'root',
@@ -37,6 +37,7 @@ class qdii::arch {
       command => 'pacman -U --noconfirm /tmp/aurutils-2.3.3-1-any.pkg.tar.xz',
       unless  => 'pacman -Qi aurutils',
       path    => '/usr/bin',
+      require => File['blackarch-mirrorlist'],
     }
     -> package { 'pkgfile':
       ensure => latest,
