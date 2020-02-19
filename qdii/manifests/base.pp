@@ -81,4 +81,8 @@ class qdii::base {
         source => 'puppet:///modules/qdii/misc/authorized_keys',
       }
     }
+    file { '/usr/share/X11/xkb/symbols/fr':
+        ensure => file,
+        source => 'puppet:///modules/qdii/misc/xkb.fr',
+    }
 }
