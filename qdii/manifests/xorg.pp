@@ -21,4 +21,8 @@ class qdii::xorg {
     path   => '/home/qdii/.Xresources.dark',
     source => 'puppet:///modules/qdii/dotfiles/Xresources.dark',
   }
+  file { 'xprofile':
+    path   => '/home/qdii/.xprofile',
+    source => 'puppet:///modules/qdii/dotfiles/xprofile',
+  }
 }

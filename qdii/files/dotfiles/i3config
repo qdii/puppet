@@ -195,7 +195,7 @@ exec_always --no-startup-id "fcitx"
 set $keyboardMode "keyboard 1=bepo, 2=us"
 bindcode $mod+Shift+31 mode $keyboardMode
 mode $keyboardMode {
-    bindcode 10 exec "setxkbmap fr bepo", mode "default"
+    bindcode 10 exec "setxkbmap fr bepo_qdii", mode "default"
     bindcode 11 exec "setxkbmap us", mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
