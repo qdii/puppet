@@ -187,6 +187,10 @@ exec --no-startup-id "nm-applet"
 # fading-in / fading-out
 exec_always --no-startup-id "picom -b"
 
+# adding/removing transparency
+bindcode $mod+Ctrl+16 exec "picom-trans -c +10"
+bindcode $mod+Ctrl+17 exec "picom-trans -c -10"
+
 # background picture
 exec_always --no-startup-id "feh --no-fehbg --bg-scale /home/qdii/.background.png"
 
