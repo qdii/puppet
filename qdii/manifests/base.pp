@@ -6,6 +6,7 @@ class qdii::base {
         'fakeroot',
         'feh',
         'fwupd',
+        'fzf',
         'git',
         'ipcalc',
         'lsof',

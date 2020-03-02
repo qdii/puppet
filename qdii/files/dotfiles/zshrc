@@ -27,6 +27,7 @@ plugins=(
     cp
     debian
     dirhistory
+    fzf
     git
     screen
     sudo
