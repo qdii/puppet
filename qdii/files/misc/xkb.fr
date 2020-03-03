@@ -693,6 +693,11 @@ xkb_symbols "bepo_qdii" {
 
     key  <SPCE>  {    [  space,            nobreakspace,  underscore,            U202F,                 space         ]  };
 
+    key  <DOWN>  {    [  Down,             Down,          Down,                  Down,                  0x1002193     ]  };
+    key  <UP>    {    [  Up,               Up,            Up,                    Up,                    0x1002191     ]  };
+    key  <LEFT>  {    [  Left,             Left,          Left,                  Left,                  0x1002190     ]  };
+    key  <RGHT>  {    [  Right,            Right,         Right,                 Right,                 0x1002192     ]  };
+
     include "shift(both_capslock)"
     include "level3(ralt_switch)"
     include "level5(modifier_mapping)"
