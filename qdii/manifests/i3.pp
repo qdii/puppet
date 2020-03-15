@@ -16,14 +16,12 @@ class qdii::i3 {
   file { 'i3-config-directory':
     ensure => 'directory',
     owner => 'qdii',
-    group => 'qdii',
     mode => '0600',
     path => '/home/qdii/.i3',
   }
   file { 'i3-new-config-directory':
     ensure => 'directory',
     owner => 'qdii',
-    group => 'qdii',
     mode => '0600',
     path => '/home/qdii/.config/i3',
   }
@@ -31,7 +29,6 @@ class qdii::i3 {
     path    => '/home/qdii/.config/i3/config',
     source  => 'puppet:///modules/qdii/dotfiles/i3config',
     owner   => 'qdii',
-    group   => 'qdii',
     mode    => '0600',
     require =>  File['i3-new-config-directory'],
   }
@@ -40,7 +37,6 @@ class qdii::i3 {
     path    => '/home/qdii/.i3/config',
     source  => 'puppet:///modules/qdii/dotfiles/i3config',
     owner   => 'qdii',
-    group   => 'qdii',
     mode    => '0600',
     require =>  File['i3-config-directory'],
   }
@@ -49,7 +45,6 @@ class qdii::i3 {
     path => '/home/qdii/.i3blocks.conf',
     source => 'puppet:///modules/qdii/dotfiles/i3blocks',
     owner => 'qdii',
-    group => 'qdii',
     mode => '0600',
   }
   file { 'i3get':
@@ -57,7 +52,6 @@ class qdii::i3 {
     path => '/usr/local/bin/i3get',
     source => 'puppet:///modules/qdii/misc/i3get',
     owner => 'qdii',
-    group => 'qdii',
     mode => '0777',
   }
   file { 'anycast':
@@ -65,7 +59,6 @@ class qdii::i3 {
     path => '/usr/local/bin/anycast',
     source => 'puppet:///modules/qdii/misc/anycast',
     owner => 'qdii',
-    group => 'qdii',
     mode => '0777',
   }
   file { 'i3cast':
@@ -73,7 +66,6 @@ class qdii::i3 {
     path    => '/usr/local/bin/i3cast',
     source  => 'puppet:///modules/qdii/misc/i3cast',
     owner   => 'qdii',
-    group   => 'qdii',
     mode    => '0777',
     require => File['anycast'],
   }
@@ -82,7 +74,6 @@ class qdii::i3 {
     path => '/usr/local/bin/i3run',
     source => 'puppet:///modules/qdii/misc/i3run',
     owner => 'qdii',
-    group => 'qdii',
     mode => '0777',
   }
 }
