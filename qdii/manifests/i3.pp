@@ -56,10 +56,10 @@ class qdii::i3 {
     owner => 'qdii',
     mode => '0777',
   }
-  file { 'anycast':
+  file { 'anypaste':
     ensure => file,
-    path => '/usr/local/bin/anycast',
-    source => 'puppet:///modules/qdii/misc/anycast',
+    path => '/usr/local/bin/anypaste',
+    source => 'puppet:///modules/qdii/misc/anypaste',
     owner => 'qdii',
     mode => '0777',
   }
@@ -69,7 +69,7 @@ class qdii::i3 {
     source  => 'puppet:///modules/qdii/misc/i3cast',
     owner   => 'qdii',
     mode    => '0777',
-    require => File['anycast'],
+    require => File['anypaste'],
   }
   file { 'i3run':
     ensure => file,
