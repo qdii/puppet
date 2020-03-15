@@ -8,10 +8,12 @@ class qdii::i3 {
     name => 'i3blocks',
     require => Package['i3'],
   }
-  package { 'i3lock-color-git':
-    ensure => 'latest',
-    name => 'i3lock-color-git',
-    require => Package['i3'],
+  if $::operatingsystem == 'ArchLinux' {
+      package { 'i3lock-color-git':
+        ensure => 'latest',
+        name => 'i3lock-color-git',
+        require => Package['i3'],
+      }
   }
   file { 'i3-config-directory':
     ensure => 'directory',
