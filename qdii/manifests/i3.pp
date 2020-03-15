@@ -28,14 +28,7 @@ class qdii::i3 {
     group   => 'qdii',
     mode    => '0600',
   }
-  file { 'new-config-directory':
-    ensure => 'directory',
-    owner => 'qdii',
-    group => 'qdii',
-    mode => '0600',
-    path => '/home/qdii/.config',
-  }
-  -> file { 'i3-new-config-directory':
+  file { 'i3-new-config-directory':
     ensure => 'directory',
     owner => 'qdii',
     group => 'qdii',
