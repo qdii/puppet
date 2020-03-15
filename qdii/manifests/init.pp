@@ -4,7 +4,7 @@ class qdii {
   include qdii::picom
   include qdii::docker_family
   #  include qdii::dunst
-  #  include qdii::i3
+  include qdii::i3
   include qdii::irssi
   include qdii::user
   include qdii::tmux
