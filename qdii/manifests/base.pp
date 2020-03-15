@@ -14,6 +14,7 @@ class qdii::base {
         'nmap',
         'net-tools',
         'openvpn',
+        'python-pygments',
         'tcpdump',
         'traceroute',
         'zsh-syntax-highlighting',
@@ -21,35 +22,27 @@ class qdii::base {
       ensure => installed
     }
 
-    $pygmentize = $::operatingsystem ? {
-        'Archlinux' => 'pygmentize',
-        'Ubuntu'    => 'python-pygments',
-        'Debian'    => 'python-pygments',
+    if $::fqdn == 'limo.dodges.it' {
+        package { [
+            'acpi',
+            'audacity',
+            'fcitx',
+            'fcitx-libpinyin',
+            'fcitx-im',
+            'firefox',
+            'flameshot',
+            'gimp',
+            'nextcloud-client',
+            'pulseaudio',
+            'pulseaudio-bluetooth',
+            'rofi',
+            'rxvt-unicode',
+            'vlc',
+            'xorg-xev',
+        ]:
+          ensure => installed
+        }
     }
-    package { $pygmentize:
-        ensure => 'latest',
-    }
-
-    # Desktop
-    #    package { [
-    #        'acpi',
-    #        'audacity',
-    #        'fcitx',
-    #        'fcitx-libpinyin',
-    #        'fcitx-im',
-    #        'firefox',
-    #        'flameshot',
-    #        'gimp',
-    #        'nextcloud-client',
-    #        'pulseaudio',
-    #        'pulseaudio-bluetooth',
-    #        'rofi',
-    #        'rxvt-unicode',
-    #        'vlc',
-    #        'xorg-xev',
-    #    ]:
-    #      ensure => installed
-    #    }
 
     # Locale
     package { 'sed':
@@ -71,16 +64,15 @@ class qdii::base {
     package { 'sudo':
       ensure =>  latest,
     }
-    file { '/etc/sudoers.d/qdii':
-      ensure =>  file,
-      source => 'puppet:///modules/qdii/dotfiles/sudoers',
-    }
-
     if $::fqdn !~ /.*\.google\.com$/ {
-      file { '/home/qdii/.ssh/authorized_keys':
-        ensure => file,
-        source => 'puppet:///modules/qdii/misc/authorized_keys',
-      }
+        file { '/etc/sudoers.d/qdii':
+            ensure =>  file,
+            source => 'puppet:///modules/qdii/dotfiles/sudoers',
+        }
+        file { '/home/qdii/.ssh/authorized_keys':
+            ensure => file,
+            source => 'puppet:///modules/qdii/misc/authorized_keys',
+        }
     }
     file { '/usr/share/X11/xkb/symbols/fr':
         ensure => file,
