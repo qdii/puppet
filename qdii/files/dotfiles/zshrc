@@ -45,19 +45,19 @@ fi
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
 
-# Arch linux installs here
+# Arch linux installs zsh-syntax-highlighting.zsh here
 if [[ -f '/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' ]]; then
     source '/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh'
 fi
 
-# Ubuntu installs here
+# Ubuntu installs zsh-syntax-highlighting.zsh here
 if [[ -f '/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' ]]; then
     source '/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh'
 fi
 
 source $ZSH/oh-my-zsh.sh
 
-export BROWSER="firefox"
+source "$HOME/.zshrc.browser"
 export EDITOR="vim"
 export PATH="$PATH":~/cld/bin
 
