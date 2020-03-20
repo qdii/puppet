@@ -1,6 +1,7 @@
 class qdii {
   include qdii::arch
   include qdii::base
+  include qdii::clipmenu
   include qdii::picom
   include qdii::docker_family
   #  include qdii::dunst
