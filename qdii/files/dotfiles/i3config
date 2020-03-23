@@ -89,6 +89,17 @@ bindcode $mod+Shift+17 move container to workspace 8
 bindcode $mod+Shift+18 move container to workspace 9
 bindcode $mod+Shift+19 move container to workspace 10
 
+# move focused workspace to output
+bindcode $mod+Ctrl+Shift+44 move workspace to output right
+bindcode $mod+Ctrl+Shift+47 move workspace to output left
+bindcode $mod+Ctrl+Shift+45 move workspace to output up
+bindcode $mod+Ctrl+Shift+46 move workspace to output down
+# arrows keys
+bindcode $mod+Ctrl+Shift+113 move workspace to output left
+bindcode $mod+Ctrl+Shift+116 move workspace to output down
+bindcode $mod+Ctrl+Shift+111 move workspace to output up
+bindcode $mod+Ctrl+Shift+114 move workspace to output right
+
 # reload the configuration file
 bindcode $mod+Shift+54 reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
