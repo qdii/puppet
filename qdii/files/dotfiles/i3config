@@ -66,16 +66,16 @@ bindcode $mod+38 focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindcode $mod+10 workspace 1
-bindcode $mod+11 workspace 2
-bindcode $mod+12 workspace 3
-bindcode $mod+13 workspace 4
-bindcode $mod+14 workspace 5
-bindcode $mod+15 workspace 6
-bindcode $mod+16 workspace 7
-bindcode $mod+17 workspace 8
-bindcode $mod+18 workspace 9
-bindcode $mod+19 workspace 10
+bindcode $mod+10 workspace number 1
+bindcode $mod+11 workspace number 2
+bindcode $mod+12 workspace number 3
+bindcode $mod+13 workspace number 4
+bindcode $mod+14 workspace number 5
+bindcode $mod+15 workspace number 6
+bindcode $mod+16 workspace number 7
+bindcode $mod+17 workspace number 8
+bindcode $mod+18 workspace number 9
+bindcode $mod+19 workspace number 10
 
 # move focused container to workspace
 bindcode $mod+Shift+10 move container to workspace 1
@@ -247,3 +247,8 @@ bindcode $mod+30 "exec --no-startup-id CM_LAUNCHER=rofi clipmenu -i -nb '#002b36
 
 # Flameshot
 exec --no-startup-id "flameshot"
+
+# xrandr
+exec --no-startup-id "xrandr --output eDP1 --mode 3000x2000 --pos 0x1457 --rotate normal --output DP1 --primary --mode 3840x2160 --pos 3000x0 --rotate normal --output DP2 --off --output HDMI1 --off --output VIRTUAL1 --off"
+
+bindcode $mod+Control+27 exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
