@@ -171,11 +171,12 @@ client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 # no side border
 hide_edge_borders smart
 
-# No titlebar on firefox
+# No titlebar on firefox and chrome
 for_window [class="firefox"] border pixel 1
 assign [class="firefox"] 1
 
 for_window [class="URxvt"] border pixel 1
+for_window [class="Google-chrome"] border pixel 1
 
 # Xpad
 for_window [class="xpad"] floating enable
