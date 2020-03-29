@@ -78,4 +78,8 @@ class qdii::base {
         ensure => file,
         source => 'puppet:///modules/qdii/misc/xkb.fr',
     }
+    file { '/usr/share/X11/xkb/rules/base.lst':
+        ensure => file,
+        source => 'puppet:///modules/qdii/misc/base.lst',
+    }
 }
