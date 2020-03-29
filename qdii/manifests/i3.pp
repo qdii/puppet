@@ -8,6 +8,14 @@ class qdii::i3 {
     name => 'i3blocks',
     require => Package['i3'],
   }
+  if $::operatingsystem == 'Debian' {
+    file { 'i3blocks-binary':
+      ensure => 'file',
+      require => Package['i3blocks'],
+      path => '/usr/bin/i3blocks',
+      source  => 'puppet:///modules/qdii/misc/i3blocks',
+    }
+  }
   if $::operatingsystem == 'ArchLinux' {
       package { 'i3lock-color-git':
         ensure => 'latest',
