@@ -22,4 +22,10 @@ class qdii::mutt {
     source => 'puppet:///modules/qdii/dotfiles/misc/mutt-colors-solarized-dark-256.muttrc',
     mode => '0644',
   }
+  file { 'offlineimaprc':
+    ensure => file,
+    path   => '/home/qdii/.offlineimaprc',
+    source => 'puppet:///modules/qdii/dotfiles/offlineimaprc',
+    mode   => '0600'
+  }
 }
