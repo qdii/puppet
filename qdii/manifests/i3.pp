@@ -35,9 +35,15 @@ class qdii::i3 {
     mode => '0600',
     path => '/home/qdii/.config/i3',
   }
-  -> file { 'i3-new-config':
+
+  if $::fqdn =~ /.*\.corp\.google\.com/ {
+      $i3suffix = '.work'
+  } else {
+      $i3suffix = '.perso'
+  }
+  file { 'i3-new-config':
     path    => '/home/qdii/.config/i3/config',
-    source  => 'puppet:///modules/qdii/dotfiles/i3config',
+    source  => "puppet:///modules/qdii/dotfiles/i3config${i3suffix}",
     owner   => 'qdii',
     mode    => '0600',
     require =>  File['i3-new-config-directory'],
@@ -45,7 +51,7 @@ class qdii::i3 {
   file { 'i3config':
     ensure  => file,
     path    => '/home/qdii/.i3/config',
-    source  => 'puppet:///modules/qdii/dotfiles/i3config',
+    source  => "puppet:///modules/qdii/dotfiles/i3config${i3suffix}",
     owner   => 'qdii',
     mode    => '0600',
     require =>  File['i3-config-directory'],

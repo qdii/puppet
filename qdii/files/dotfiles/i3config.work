@@ -1,0 +1,254 @@
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+
+font pango:Inconsolata for Powerline 8
+
+floating_modifier $mod
+
+# start a terminal
+bindcode $mod+36 exec i3-sensible-terminal
+
+# kill focused window
+bindcode $mod+Shift+24 kill
+
+# start dmenu (a program launcher)
+bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu'
+
+# change focus
+bindcode $mod+44 focus left
+bindcode $mod+45 focus down
+bindcode $mod+46 focus up
+bindcode $mod+47 focus right
+
+# alternatively, you can use the cursor keys:
+bindcode $mod+113 focus left
+bindcode $mod+116 focus down
+bindcode $mod+111 focus up
+bindcode $mod+114 focus right
+
+# move focused window
+bindcode $mod+Shift+44 move left
+bindcode $mod+Shift+45 move down
+bindcode $mod+Shift+46 move up
+bindcode $mod+Shift+47 move right
+
+# alternatively, you can use the cursor keys:
+bindcode $mod+Shift+113 move left
+bindcode $mod+Shift+116 move down
+bindcode $mod+Shift+111 move up
+bindcode $mod+Shift+114 move right
+
+# split in horizontal orientation
+bindcode $mod+43 split h
+
+# split in vertical orientation
+bindcode $mod+55 split v
+
+# enter fullscreen mode for the focused container
+bindcode $mod+41 fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindcode $mod+39 layout stacking
+bindcode $mod+25 layout tabbed
+bindcode $mod+26 layout toggle split
+
+# toggle tiling / floating
+bindcode $mod+Shift+65 floating toggle
+
+# change focus between tiling / floating windows
+bindcode $mod+65 focus mode_toggle
+
+# focus the parent container
+bindcode $mod+38 focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindcode $mod+10 workspace number 1
+bindcode $mod+11 workspace number 2
+bindcode $mod+12 workspace number 3
+bindcode $mod+13 workspace number 4
+bindcode $mod+14 workspace number 5
+bindcode $mod+15 workspace number 6
+bindcode $mod+16 workspace number 7
+bindcode $mod+17 workspace number 8
+bindcode $mod+18 workspace number 9
+bindcode $mod+19 workspace number 10
+
+# move focused container to workspace
+bindcode $mod+Shift+10 move container to workspace 1
+bindcode $mod+Shift+11 move container to workspace 2
+bindcode $mod+Shift+12 move container to workspace 3
+bindcode $mod+Shift+13 move container to workspace 4
+bindcode $mod+Shift+14 move container to workspace 5
+bindcode $mod+Shift+15 move container to workspace 6
+bindcode $mod+Shift+16 move container to workspace 7
+bindcode $mod+Shift+17 move container to workspace 8
+bindcode $mod+Shift+18 move container to workspace 9
+bindcode $mod+Shift+19 move container to workspace 10
+
+# move focused workspace to output
+bindcode $mod+Ctrl+Shift+44 move workspace to output right
+bindcode $mod+Ctrl+Shift+47 move workspace to output left
+bindcode $mod+Ctrl+Shift+45 move workspace to output up
+bindcode $mod+Ctrl+Shift+46 move workspace to output down
+# arrows keys
+bindcode $mod+Ctrl+Shift+113 move workspace to output left
+bindcode $mod+Ctrl+Shift+116 move workspace to output down
+bindcode $mod+Ctrl+Shift+111 move workspace to output up
+bindcode $mod+Ctrl+Shift+114 move workspace to output right
+
+# reload the configuration file
+bindcode $mod+Shift+54 reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindcode $mod+Shift+27 restart
+# exit i3 (logs you out of your X session)
+bindcode $mod+Shift+26 exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindcode 44 resize shrink width 10 px or 10 ppt
+        bindcode 45 resize grow height 10 px or 10 ppt
+        bindcode 46 resize shrink height 10 px or 10 ppt
+        bindcode 47 resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindcode 113 resize shrink width 10 px or 10 ppt
+        bindcode 116 resize grow height 10 px or 10 ppt
+        bindcode 111 resize shrink height 10 px or 10 ppt
+        bindcode 114 resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindcode 36 mode "default"
+        bindcode 9 mode "default"
+}
+
+bindcode $mod+27 mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    font pango:Inconsolata for Powerline 10, Awesome 10
+    status_command SCRIPT_DIR=/home/qdii/.i3/i3blocks-contrib i3blocks
+    tray_output primary
+	colors {
+		background          #002b36
+		statusline          #839496
+		separator           #586e75
+		focused_workspace   #b58900 #b58900 #002b36
+		active_workspace    #586e75 #586e75 #002b36
+		inactive_workspace  #073642 #002b36 #839496
+		urgent_workspace    #dc322f #dc322f #fdf6e3
+	}
+}
+
+# backlight
+bindcode 232 "exec --no-startup-id xbacklight -5"
+bindcode 233 "exec --no-startup-id xbacklight +5"
+
+# Screenshots
+bindcode --release $mod+95 exec --no-startup-id flameshot gui
+bindcode --release $mod+107 exec --no-startup-id flameshot gui
+
+# Screencast
+bindcode --release $mod+Shift+95 exec --no-startup-id i3cast
+
+# colors
+client.focused          #002b36 #586e75 #fdf6e3 #268bd2
+client.focused_inactive #002b36 #073642 #839496 #073642
+client.unfocused        #002b36 #073642 #839496 #073642
+client.urgent           #002b36 #dc322f #fdf6e3 #002b36
+
+
+# no side border
+hide_edge_borders smart
+
+# No titlebar on firefox and chrome
+for_window [class="firefox"] border pixel 1
+assign [class="firefox"] 1
+
+for_window [class="URxvt"] border pixel 1
+for_window [class="Google-chrome"] border pixel 1
+
+# Xpad
+for_window [class="xpad"] floating enable
+exec --no-startup-id "xpad"
+
+# Spotify
+assign [class="Spotify"] 9
+for_window [class="Spotify"] border pixel 1
+exec --no-startup-id "spotify"
+for_window [class="Spotify"] move to workspace 9
+
+# Telegram
+assign [class="TelegramDesktop"] workspace 10
+exec --no-startup-id "telegram-desktop"
+for_window [class="TelegramDesktop"] border pixel 1
+
+# nm-applet
+exec --no-startup-id "nm-applet"
+
+# fading-in / fading-out
+exec_always --no-startup-id "picom -b"
+
+# adding/removing transparency
+bindcode $mod+Ctrl+16 exec "picom-trans -c +10"
+bindcode $mod+Ctrl+17 exec "picom-trans -c -10"
+
+# background picture
+exec_always --no-startup-id "feh --no-fehbg --bg-scale /home/qdii/.background.png"
+
+# keyboard layout
+exec_always --no-startup-id "fcitx"
+set $keyboardMode "keyboard 1=bepo, 2=us"
+bindcode $mod+Shift+31 mode $keyboardMode
+mode $keyboardMode {
+    bindcode 10 exec "setxkbmap fr bepo_qdii", mode "default"
+    bindcode 11 exec "setxkbmap us", mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Tray for bluetooth
+exec --no-startup-id "blueberry-tray"
+
+# Autolock
+exec --no-startup-id "xautolock -time 10 -locker /home/qdii/cld/bin/i3locker"
+
+# Autolock when resuming from hibernation
+exec --no-startup-id "xss-lock -- /home/qdii/cld/bin/i3locker"
+
+# Dunst
+exec --no-startup-id "dunst"
+
+# Start a session of firefox
+exec --no-startup-id "firefox"
+
+# Scratchpad
+bindcode $mod+Shift+96 move scratchpad
+bindcode $mod+96 scratchpad show
+bindcode $mod+Shift+118 move scratchpad
+bindcode $mod+118 scratchpad show
+
+# Redshift
+exec --no-startup-id "redshift"
+
+# Clipmenu
+bindcode $mod+30 "exec --no-startup-id CM_LAUNCHER=rofi clipmenu -i -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#93a1a1'"
+
+# Flameshot
+exec --no-startup-id "flameshot"
+
+# xrandr
+exec --no-startup-id "xrandr --output eDP1 --mode 3000x2000 --pos 0x1457 --rotate normal --output DP1 --primary --mode 3840x2160 --pos 3000x0 --rotate normal --output DP2 --off --output HDMI1 --off --output VIRTUAL1 --off"
+
+bindcode $mod+Control+27 exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
