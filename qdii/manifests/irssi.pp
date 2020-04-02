@@ -10,24 +10,22 @@ class qdii::irssi {
     name => 'irssi',
   }
 
-  if $::fqdn =~ /.*\.roam\.corp\.google\.com/ {
-  }
-  else {
     file { 'irssi-directory':
       ensure => 'directory',
-      path   => '/home/qdii/.irssi',
+      path   => "$qdii::homedir/.irssi",
     }
-    file { 'irssi-config':
-      ensure  =>  file,
-      path    => '/home/qdii/.irssi/config',
-      source  => 'puppet:///modules/qdii/dotfiles/irssi-config',
-      require => File['irssi-directory'],
+  if "$qdii::at_work" == false {
+      file { 'irssi-config':
+        ensure  =>  file,
+        path    => "$qdii::homedir/.irssi/config",
+        source  => 'puppet:///modules/qdii/dotfiles/irssi-config',
+        require => File['irssi-directory'],
+      }
+      file { 'irssi-solarized-theme':
+        ensure =>  file,
+        path   => "$qdii::homedir/.irssi/solarized-universal.theme",
+        source => 'puppet:///modules/qdii/misc/solarized-universal.theme',
+        require => File['irssi-directory'],
+      }
     }
-    file { 'irssi-solarized-theme':
-      ensure =>  file,
-      path   => '/home/qdii/.irssi/solarized-universal.theme',
-      source => 'puppet:///modules/qdii/misc/solarized-universal.theme',
-      require => File['irssi-directory'],
-    }
-  }
 }

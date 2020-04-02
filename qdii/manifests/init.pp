@@ -1,4 +1,16 @@
 class qdii {
+  if $::fqdn =~ /.*roam\.corp\.google\.com/ {
+    $homedir = '/home/qdii'
+    $at_work = true
+  }
+  elsif $::fqdn =~ /.*\.corp\.google\.com/ {
+    $homedir = '/usr/local/google/home/qdii'
+    $at_work = true
+  }
+  else {
+    $homedir = '/home/qdii'
+    $at_work = false
+  }
   include qdii::arch
   include qdii::base
   include qdii::clipmenu

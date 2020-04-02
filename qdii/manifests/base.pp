@@ -69,7 +69,7 @@ class qdii::base {
             ensure =>  file,
             source => 'puppet:///modules/qdii/dotfiles/sudoers',
         }
-        file { '/home/qdii/.ssh/authorized_keys':
+        file { "$qdii::homedir/.ssh/authorized_keys":
             ensure => file,
             source => 'puppet:///modules/qdii/misc/authorized_keys',
         }

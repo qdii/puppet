@@ -17,23 +17,23 @@ class qdii::i3 {
     }
   }
   if $::operatingsystem == 'ArchLinux' {
-      package { 'i3lock-color-git':
-        ensure => 'latest',
-        name => 'i3lock-color-git',
-        require => Package['i3'],
-      }
+    package { 'i3lock-color-git':
+      ensure => 'latest',
+      name => 'i3lock-color-git',
+      require => Package['i3'],
+    }
   }
   file { 'i3-config-directory':
     ensure => 'directory',
     owner => 'qdii',
     mode => '0600',
-    path => '/home/qdii/.i3',
+    path => "$qdii::homedir/.i3",
   }
   file { 'i3-new-config-directory':
     ensure => 'directory',
     owner => 'qdii',
     mode => '0600',
-    path => '/home/qdii/.config/i3',
+    path => "$qdii::homedir/.config/i3",
   }
 
   if $::fqdn =~ /.*\.corp\.google\.com/ {
@@ -42,7 +42,7 @@ class qdii::i3 {
       $i3suffix = '.perso'
   }
   file { 'i3-new-config':
-    path    => '/home/qdii/.config/i3/config',
+    path    => "$qdii::homedir/.config/i3/config",
     source  => "puppet:///modules/qdii/dotfiles/i3config${i3suffix}",
     owner   => 'qdii',
     mode    => '0600',
@@ -50,7 +50,7 @@ class qdii::i3 {
   }
   file { 'i3config':
     ensure  => file,
-    path    => '/home/qdii/.i3/config',
+    path    => "$qdii::homedir/.i3/config",
     source  => "puppet:///modules/qdii/dotfiles/i3config${i3suffix}",
     owner   => 'qdii',
     mode    => '0600',
@@ -58,7 +58,7 @@ class qdii::i3 {
   }
   file { 'i3blocks':
     ensure => file,
-    path => '/home/qdii/.i3blocks.conf',
+    path => "$qdii::homedir/.i3blocks.conf",
     source => 'puppet:///modules/qdii/dotfiles/i3blocks',
     owner => 'qdii',
     mode => '0600',

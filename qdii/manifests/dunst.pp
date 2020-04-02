@@ -8,11 +8,11 @@ class qdii::dunst {
     owner => 'qdii',
     group => 'qdii',
     mode => '0600',
-    path => '/home/qdii/.config/dunst',
+    path => "$qdii::homedir/.config/dunst",
   }
   file { 'dunstrc':
     ensure => file,
-    path => '/home/qdii/.config/dunst/dunstrc',
+    path => "$qdii::homedir/.config/dunst/dunstrc",
     source => 'puppet:///modules/qdii/dotfiles/dunstrc',
     mode => '0600',
     owner => 'qdii',

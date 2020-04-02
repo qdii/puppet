@@ -12,21 +12,21 @@ class qdii::vim {
   if $::fqdn =~ /.*\.roam\.corp\.google\.com$/ {
     file { 'vimrc':
       ensure =>  file,
-      path   => '/home/qdii/.vimrc',
+      path   => "$qdii::homedir/.vimrc",
       source => 'puppet:///modules/qdii/dotfiles/vimrc',
     }
   }
   elsif $::fqdn =~ /.*\.corp\.google\.com$/ {
     file { 'vimrc':
       ensure =>  file,
-      path   => '/usr/local/google/home/qdii/.vimrc',
+      path   => "$qdii::homedir/.vimrc",
       source => 'puppet:///modules/qdii/dotfiles/vimrc_google',
     }
   }
   else {
     file { 'vimrc':
       ensure => file,
-      path   => '/home/qdii/.vimrc',
+      path   => "$qdii::homedir/.vimrc",
       source => 'puppet:///modules/qdii/dotfiles/vimrc',
     }
   }

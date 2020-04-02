@@ -10,19 +10,19 @@ class qdii::xorg {
     name   => 'xorg-server',
   }
   file { 'xinitrc':
-    path   => '/home/qdii/.xinitrc',
+    path   => '$qdii::homedir/.xinitrc',
     source => 'puppet:///modules/qdii/dotfiles/xinitrc',
   }
   file { 'Xresources':
-    path   => '/home/qdii/.Xresources',
+    path   => '$qdii::homedir/.Xresources',
     source => 'puppet:///modules/qdii/dotfiles/Xresources',
   }
   file { 'Xresources.dark':
-    path   => '/home/qdii/.Xresources.dark',
+    path   => '$qdii::homedir/.Xresources.dark',
     source => 'puppet:///modules/qdii/dotfiles/Xresources.dark',
   }
   file { 'xprofile':
-    path   => '/home/qdii/.xprofile',
+    path   => '$qdii::homedir/.xprofile',
     source => 'puppet:///modules/qdii/dotfiles/xprofile',
   }
 }
