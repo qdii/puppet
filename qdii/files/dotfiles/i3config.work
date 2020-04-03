@@ -160,6 +160,7 @@ bindcode --release $mod+107 exec --no-startup-id flameshot gui
 
 # Screencast
 bindcode --release $mod+Shift+95 exec --no-startup-id i3cast
+bindcode --release $mod+Shift+107 exec --no-startup-id i3cast
 
 # colors
 client.focused          #002b36 #586e75 #fdf6e3 #268bd2
