@@ -26,7 +26,7 @@ class qdii::mutt {
       file { 'mutt-solarized':
         ensure => file,
         path => "$qdii::homedir/.mutt/mutt-colors-solarized-dark-256.muttrc",
-        source => 'puppet:///modules/qdii/dotfiles/misc/mutt-colors-solarized-dark-256.muttrc',
+        source => 'puppet:///modules/qdii/dotfiles/mutt-colors-solarized-dark-256.muttrc',
         mode => '0644',
       }
       file { 'offlineimaprc':
