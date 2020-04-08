@@ -5,6 +5,11 @@ class qdii::mutt {
         name => 'mutt',
       }
       User <| title == me |> ->
+      file { 'muttdir':
+        ensure => directory,
+        owner  => 'qdii',
+        path   => "$qdii::homedir/.mutt",
+      }
       file { 'muttrc':
         ensure => file,
         path => "$qdii::homedir/.muttrc",
@@ -12,10 +17,11 @@ class qdii::mutt {
         mode => '0600',
       }
       file { 'mailcap':
-        ensure => file,
-        path => "$qdii::homedir/.mutt/mailcap",
-        source => 'puppet:///modules/qdii/misc/mailcap',
-        mode => '0600',
+        ensure  => file,
+        path    => "$qdii::homedir/.mutt/mailcap",
+        source  => 'puppet:///modules/qdii/misc/mailcap',
+        mode    => '0600',
+        require => File['muttdir'],
       }
       file { 'mutt-solarized':
         ensure => file,
