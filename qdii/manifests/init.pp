@@ -19,6 +19,7 @@ class qdii {
   #  include qdii::dunst
   include qdii::i3
   include qdii::irssi
+  include qdii::mutt
   include qdii::user
   include qdii::tmux
   include qdii::vim
