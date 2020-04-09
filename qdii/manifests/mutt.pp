@@ -3,7 +3,6 @@ class qdii::mutt {
       package { 'mutt':
         ensure => 'latest',
         name   => 'mutt',
-        owner  => 'qdii',
       }
       User <| title == me |> ->
       file { 'muttdir':
