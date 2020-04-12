@@ -58,5 +58,9 @@ class qdii::mutt {
         ensure => 'latest',
         name   => 'w3m',
       }
+      package { 'urlview':
+        ensure => 'latest',
+        name   => 'urlview',
+      }
   }
 }
