@@ -39,5 +39,13 @@ class qdii::mutt {
         source => 'puppet:///modules/qdii/dotfiles/offlineimaprc',
         mode   => '0600'
       }
+      file { 'macros':
+        ensure => file,
+        path   => "$qdii::homedir/.mutt/macros",
+        owner  => 'qdii',
+        source => 'puppet:///modules/qdii/misc/macros',
+        require => File['muttdir'],
+        mode   => '0600'
+      }
   }
 }
