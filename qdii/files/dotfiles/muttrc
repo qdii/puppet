@@ -20,4 +20,7 @@ set message_cachedir =~/.mutt/cache/bodies
 set certificate_file =~/.mutt/certificates
 set sort=reverse-date-received
 
+set mailcap_path = ~/.mutt/mailcap
+auto_view text/html
+
 source /home/qdii/.mutt/mutt-colors-solarized-dark-256.muttrc
