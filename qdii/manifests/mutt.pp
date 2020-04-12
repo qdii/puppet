@@ -47,5 +47,12 @@ class qdii::mutt {
         require => File['muttdir'],
         mode   => '0600'
       }
+      file { 'urlview':
+        ensure => file,
+        path   => "$qdii::homedir/.urlview",
+        owner  => 'qdii',
+        source => 'puppet:///modules/qdii/misc/urlview',
+        mode   => '0600'
+      }
   }
 }
