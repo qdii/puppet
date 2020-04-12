@@ -54,5 +54,9 @@ class qdii::mutt {
         source => 'puppet:///modules/qdii/misc/urlview',
         mode   => '0600'
       }
+      package { 'w3m':
+        ensure => 'latest',
+        name   => 'w3m',
+      }
   }
 }
