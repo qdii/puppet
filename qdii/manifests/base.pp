@@ -82,4 +82,13 @@ class qdii::base {
         ensure => file,
         source => 'puppet:///modules/qdii/misc/base.lst',
     }
+    if $::fqdn == 'limo.dodges.it' {
+        file { 'refind.conf':
+            ensure => file,
+            path   => '/boot/EFI/refind/refind.conf',
+            source => 'puppet:///modules/qdii/dotfiles/refind.conf',
+            owner  => 'root',
+            mode   => '0644',
+        }
+    }
 }
