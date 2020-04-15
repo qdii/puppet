@@ -249,6 +249,6 @@ bindcode $mod+30 "exec --no-startup-id CM_LAUNCHER=rofi clipmenu -i -nb '#002b36
 exec --no-startup-id "flameshot"
 
 # xrandr
-exec --no-startup-id "xrandr --output eDP1 --mode 3000x2000 --pos 0x1457 --rotate normal --output DP1 --primary --mode 3840x2160 --pos 3000x0 --rotate normal --output DP2 --off --output HDMI1 --off --output VIRTUAL1 --off"
+exec --no-startup-id "/bin/bash /home/qdii/.screenlayout/layout.sh"
 
 bindcode $mod+Control+27 exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
