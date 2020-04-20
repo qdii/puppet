@@ -197,7 +197,7 @@ for_window [class="TelegramDesktop"] border pixel 1
 exec --no-startup-id "nm-applet"
 
 # fading-in / fading-out
-exec_always --no-startup-id "picom -b"
+exec_always --no-startup-id "picom -b --use-damage --backend xrender"
 
 # adding/removing transparency
 bindcode $mod+Ctrl+16 exec "picom-trans -c +10"
