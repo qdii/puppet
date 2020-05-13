@@ -59,7 +59,7 @@ class qdii::i3 {
   file { 'i3blocks':
     ensure => file,
     path => "$qdii::homedir/.i3blocks.conf",
-    source => 'puppet:///modules/qdii/dotfiles/i3blocks',
+    source => "puppet:///modules/qdii/dotfiles/i3blocks${i3suffix}",
     owner => 'qdii',
     mode => '0600',
   }

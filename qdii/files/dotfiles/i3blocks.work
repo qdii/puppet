@@ -1,0 +1,120 @@
+# i3blocks config file
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+color=#839496
+command=/home/qdii/.i3/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME
+separator_block_width=20
+markup=pango
+
+[weather]
+command=$SCRIPT_DIR/weather/weather
+# Zurich
+instance=2657896
+interval=60
+
+[pacman-updates]
+label=<span color='aqua'> </span>
+command=$SCRIPT_DIR/arch-update/arch-update
+markup=pango
+interval=3600
+BASE_COLOR=#839496
+UPDATE_COLOR=#839496
+
+[memory]
+label=<span color='aqua'> </span>
+separator=true
+interval=30
+
+[memory]
+label=<span color='aqua'> </span>
+instance=swap
+separator=true
+interval=30
+
+[disk]
+label=<span color='aqua'> </span>
+interval=30
+
+[iface]
+label=<span color='aqua'> </span>
+instance=wlp60s0
+interval=10
+separator=true
+
+[wifi]
+label=<span color='aqua'> </span>
+instance=wlp60s0
+interval=10
+separator=true
+
+[bandwidth]
+command=$SCRIPT_DIR/bandwidth/bandwidth -i "<span color='aqua'>  </span>" -o "<span color='aqua'> </span>"
+instance=wlp60s0
+separator=true
+interval=5
+
+[governor]
+label=<span color='aqua'> </span>
+interval=10
+separator=false
+
+[cpu_usage2]
+label=
+command=$SCRIPT_DIR/cpu_usage2/cpu_usage2 -d 1 -l ""
+interval=persist
+separator=true
+
+[load_average]
+label=<span color='aqua'> </span>
+interval=10
+separator=true
+
+[temperature]
+label=<span color='aqua'> </span>
+interval=10
+
+[volume-pulseaudio]
+label=<span color='aqua'>♪ </span>
+command=$SCRIPT_DIR/volume-pulseaudio/volume-pulseaudio -C"#839496" -H" " -M" " -L" " -X" " -a
+interval=once
+signal=1
+separator=true
+
+[disk-io]
+label=<span color='aqua'> </span>
+command=$SCRIPT_DIR/disk-io/disk-io
+interval=persist
+
+[brightness]
+label=<span color='aqua'> </span>
+command=$SCRIPT_DIR/brightness/brightness
+interval=10
+signal=1
+separator=true
+
+[battery]
+label=<span color='aqua'>⚡ </span>
+interval=30
+separator=true
+
+[time]
+label=<span color='aqua'> </span>
+command=$SCRIPT_DIR/time/time
+interval=5
+TZ_FILE=~/.tz
+STRFTIME_FORMAT=%Y-%m-%d %H:%M
+TZONES=$DEFAULT_TZ,America/Los_Angeles
+TZ_LABELS=ZRH,MTV
+
+[shutdown_menu]
+full_text=<span color='aqua'> </span>
+separator=true
+command=$SCRIPT_DIR/shutdown_menu/shutdown_menu
+ROFI_TEXT=Shutdown
+ROFI_OPTIONS=-width 11 -hide-scrollbar -bw 2
+ENABLE_CONFIRMATIONS=true
+LAUNCHER=rofi
+LOCKSCRIPT=/home/qdii/cld/bin/i3locker
