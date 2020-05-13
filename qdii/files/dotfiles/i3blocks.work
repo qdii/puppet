@@ -40,19 +40,19 @@ interval=30
 
 [iface]
 label=<span color='aqua'> </span>
-instance=wlp60s0
+instance=wlp4s0
 interval=10
 separator=true
 
 [wifi]
 label=<span color='aqua'> </span>
-instance=wlp60s0
+instance=wlp4s0
 interval=10
 separator=true
 
 [bandwidth]
 command=$SCRIPT_DIR/bandwidth/bandwidth -i "<span color='aqua'>  </span>" -o "<span color='aqua'> </span>"
-instance=wlp60s0
+instance=wlp4s0
 separator=true
 interval=5
 
