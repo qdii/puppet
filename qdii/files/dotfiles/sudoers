@@ -1,1 +1,2 @@
 qdii ALL=(ALL) ALL
+qdii ALL= (root) NOPASSWD: /usr/bin/cpupower
