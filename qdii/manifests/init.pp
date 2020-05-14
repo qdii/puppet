@@ -28,6 +28,7 @@ class qdii {
   include qdii::i3
   include qdii::irssi
   include qdii::mutt
+  include qdii::optimus
   include qdii::user
   include qdii::tmux
   include qdii::vim
